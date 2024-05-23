@@ -1,3 +1,56 @@
+/*
+
+
+Problem Statement: Circuit Simulation and Analysis Tool
+Objective:
+Develop a C++ program that simulates and analyzes simple electronic circuits. The program should read a circuit description from a file, simulate the circuit to compute node voltages and branch currents, and generate a report summarizing the results.
+
+Data Format:
+The input file (circuit_description.txt) contains a list of components and their connections in the following format:
+
+R1 1 2 1000
+R2 2 0 2000
+V1 1 0 5
+
+Component types: Resistor (R), Voltage Source (V).
+Format: ComponentName Node1 Node2 Value
+Node 0 represents the ground.
+
+Functional Requirements:
+
+File Reading: Read the circuit description from circuit_description.txt.
+Data Storage: Store the components and their connections in appropriate data structures.
+Simulation:
+Formulate the circuit equations using Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL).
+Solve the system of linear equations to find node voltages.
+Calculate branch currents based on node voltages.
+Reporting:
+Generate a summary report displaying node voltages and branch currents.
+User Interface:
+Provide a command-line interface to specify the input file and view the report.
+Constraints:
+
+The program should handle simple linear circuits with resistors and independent voltage sources.
+The program must be efficient in solving the system of equations, even for larger circuits.
+Extra Credit:
+
+Support additional component types (e.g., capacitors, inductors, current sources).
+Implement transient analysis for circuits with capacitors and inductors.
+Provide visualization of the circuit and simulation results.
+Hints:
+
+Use data structures like vectors or maps to store the circuit components and their connections.
+Implement matrix operations to solve the system of linear equations (e.g., Gaussian elimination).
+Structure the program with modular functions to handle different tasks
+ (e.g., reading data, formulating equations, solving equations, generating reports).
+
+
+*/
+
+
+#if 0
+
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -135,52 +188,4 @@ void generateReport(const std::vector<Component>& components, const Eigen::Vecto
     }
 }
 
-
-/*
-
-
-Problem Statement: Circuit Simulation and Analysis Tool
-Objective:
-Develop a C++ program that simulates and analyzes simple electronic circuits. The program should read a circuit description from a file, simulate the circuit to compute node voltages and branch currents, and generate a report summarizing the results.
-
-Data Format:
-The input file (circuit_description.txt) contains a list of components and their connections in the following format:
-
-R1 1 2 1000
-R2 2 0 2000
-V1 1 0 5
-
-Component types: Resistor (R), Voltage Source (V).
-Format: ComponentName Node1 Node2 Value
-Node 0 represents the ground.
-
-Functional Requirements:
-
-File Reading: Read the circuit description from circuit_description.txt.
-Data Storage: Store the components and their connections in appropriate data structures.
-Simulation:
-Formulate the circuit equations using Kirchhoff's Current Law (KCL) and Kirchhoff's Voltage Law (KVL).
-Solve the system of linear equations to find node voltages.
-Calculate branch currents based on node voltages.
-Reporting:
-Generate a summary report displaying node voltages and branch currents.
-User Interface:
-Provide a command-line interface to specify the input file and view the report.
-Constraints:
-
-The program should handle simple linear circuits with resistors and independent voltage sources.
-The program must be efficient in solving the system of equations, even for larger circuits.
-Extra Credit:
-
-Support additional component types (e.g., capacitors, inductors, current sources).
-Implement transient analysis for circuits with capacitors and inductors.
-Provide visualization of the circuit and simulation results.
-Hints:
-
-Use data structures like vectors or maps to store the circuit components and their connections.
-Implement matrix operations to solve the system of linear equations (e.g., Gaussian elimination).
-Structure the program with modular functions to handle different tasks
- (e.g., reading data, formulating equations, solving equations, generating reports).
-
-
-*/
+#endif

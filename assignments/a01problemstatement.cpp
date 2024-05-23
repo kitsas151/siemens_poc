@@ -1,3 +1,46 @@
+
+/*
+
+/*
+
+Develop this outline into a complete program that meets all the requirements and test it
+ with your data set. 
+
+  File Reading: Read the power consumption data from power_data.csv.
+Data Storage: Store the data in appropriate data structures for analysis.
+
+Statistical Analysis:
+Compute total power consumption for each day, week, and month.
+Calculate average, minimum, and maximum power consumption values for each day, week, and month.
+Identify peak usage times within each day.
+
+Reporting:
+Generate a summary report displaying daily, weekly, and monthly statistics.
+Highlight periods of unusually high power consumption.
+
+User Interface:
+Provide a simple command-line interface to specify the input file and view the report.
+
+Constraints:
+The program should handle large data sets efficiently.
+The program should be robust, handling errors in input data gracefully (e.g., missing or malformed records).
+
+
+Visualize the power consumption data using a plotting library (e.g., matplotlib via C++ bindings).
+Allow filtering of data to analyze specific date ranges or time periods.
+
+Provide export options to save the report in different formats (e.g., CSV, JSON).
+Hints:
+
+Use standard libraries for file I/O (e.g., <fstream>), string manipulation (e.g., <string>), and date/time handling (e.g., <chrono>).
+Consider using data structures like vectors or maps to store and organize the data.
+Implement functions to encapsulate different parts of the analysis 
+(e.g., reading data, calculating statistics, generating reports).
+
+*/
+
+#if 1
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -20,7 +63,7 @@ void generateReport(const std::map<std::string, double>& dailyStats,
                     const std::map<std::string, double>& monthlyStats);
 
 int main() {
-    std::string filename = "power_data.csv";
+    std::string filename = "powerdata.csv";
     std::vector<PowerData> data;
 
     if (!readData(filename, data)) {
@@ -66,30 +109,9 @@ bool readData(const std::string& filename, std::vector<PowerData>& data) {
 
 void analyzeData(const std::vector<PowerData>& data) {
     // Maps to store aggregated statistics
-    std::map<std::string, double> dailyStats;
-    std::map<std::string, double> weeklyStats;
-    std::map<std::string, double> monthlyStats;
+     
 
-    // Iterate over data and calculate statistics
-    for (const auto& entry : data) {
-        std::time_t time = std::chrono::system_clock::to_time_t(entry.timestamp);
-        std::tm* tm = std::localtime(&time);
-        
-        char dateStr[11];
-        std::strftime(dateStr, sizeof(dateStr), "%Y-%m-%d", tm);
-
-        char weekStr[8];
-        std::strftime(weekStr, sizeof(weekStr), "%Y-W%U", tm);
-
-        char monthStr[8];
-        std::strftime(monthStr, sizeof(monthStr), "%Y-%m", tm);
-
-        dailyStats[dateStr] += entry.power;
-        weeklyStats[weekStr] += entry.power;
-        monthlyStats[monthStr] += entry.power;
-    }
-
-    generateReport(dailyStats, weeklyStats, monthlyStats);
+    
 }
 
 void generateReport(const std::map<std::string, double>& dailyStats,
@@ -114,41 +136,4 @@ void generateReport(const std::map<std::string, double>& dailyStats,
     }
 }
 
-
-/*
-
-Develop this outline into a complete program that meets all the requirements and test it
- with your data set. 
-
-  File Reading: Read the power consumption data from power_data.csv.
-Data Storage: Store the data in appropriate data structures for analysis.
-
-Statistical Analysis:
-Compute total power consumption for each day, week, and month.
-Calculate average, minimum, and maximum power consumption values for each day, week, and month.
-Identify peak usage times within each day.
-
-Reporting:
-Generate a summary report displaying daily, weekly, and monthly statistics.
-Highlight periods of unusually high power consumption.
-
-User Interface:
-Provide a simple command-line interface to specify the input file and view the report.
-
-Constraints:
-The program should handle large data sets efficiently.
-The program should be robust, handling errors in input data gracefully (e.g., missing or malformed records).
-
-
-Visualize the power consumption data using a plotting library (e.g., matplotlib via C++ bindings).
-Allow filtering of data to analyze specific date ranges or time periods.
-
-Provide export options to save the report in different formats (e.g., CSV, JSON).
-Hints:
-
-Use standard libraries for file I/O (e.g., <fstream>), string manipulation (e.g., <string>), and date/time handling (e.g., <chrono>).
-Consider using data structures like vectors or maps to store and organize the data.
-Implement functions to encapsulate different parts of the analysis 
-(e.g., reading data, calculating statistics, generating reports).
-
-*/
+#endif
