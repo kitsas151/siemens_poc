@@ -1,0 +1,161 @@
+where do we get the data in the training program
+
+https://github.com/noteonbg/siemens_poc.git
+
+
+most of c++ projects c++11 c++17
+
+programmer loyalty should be towards the project
+first and then the language.
+
+
+C++ , majority of use it like a superset of C.
+
+C++ code base..
+
+0. namespaces
+1. Classes  ( Inheritance)
+2. STL or its equivalents..
+3. Smart pointers..
+4. Templates.
+5. reference usage.
+
+anything in programming..
+
+1. figure out how to convert English into functions
+and variables which fit into some architecture..
+
+ghost should come to earth.
+Intent should be followed with lot of details.
+
+Object Oriented concepts.
+
+Abstraction.
+
+class GetDevice
+{
+public:
+    virtual void connect()=0;
+    virtual ?   getdata()=0;	
+
+}
+
+class is encapsulation.
+class is mechanism  we create our data type.
+
+data type = content + operations..
+
+constructor's
+getter and setters.
+Destructors.
+operator overloading.
+copy constructor...
+move constructor..
+
+operator overloading..
+we have a class type with us
+we have an existing operator
+we are writing a function to teach the system who to deal with the operator.
+
+you have a class.
+you need a function that can is not member of the  class and it can
+access everything in the class.
+
+hello world inheritance program.
+1. base class members..
+2. base class would combination of virtual and non virtual 
+3. derived class object trying to access functions of the base and class and 
+derived class
+
+class pressureSensor:public Sensor
+
+
+Base *ptr=? //only if intent is to do runtime polymoprphism
+ptr->virtualFunction();
+delete ptr;
+
+try
+{
+normal flow of code
+}catch
+ error rectification flow.
+
+
+there is a function f1.
+  exception occurring..
+
+we should ask do i know the context.
+when i dont know context, there is no point catching the xception
+rather allow the caller of the function to handle the exception.
+
+
+
+
+Device d;
+int x =d;
+
+
+void f1(Device d)
+{
+
+}
+
+f1(3);
+
+single argument constructor in Device whose input argument is an int.
+explicit..
+
+Template functions
+Template classes.
+data type independent way of writing functions and classes.
+
+
+Template class some member variable is independent of the data type.
+Vector<device>
+
+1. containers 
+2. iterators
+3. algorithms.
+
+how do you pick the container?
+how do you pick the datastructure.
+
+1. operations..
+
+Vector<some class type of our project>
+unordered_map < , V>
+priority_ques
+set
+stack
+list
+
+2. other person design...
+sort.. predicate function which teaches the system how the comparison
+has to take place..
+predicate function implies that it is other person design.
+
+
+
+
+
+
+1. function pointer.. ability to pass function as input argument to another function.
+2. Functor object ie object acting like a function.
+3. Lamda == 2. ( ability to define function and assign function at the same time)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

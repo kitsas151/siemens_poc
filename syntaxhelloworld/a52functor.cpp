@@ -21,7 +21,7 @@ int main() {
       cout <<g1 << 3;
 
 
-    #if 0
+    #if 1
     Greet greet; // Create an instance of Greet
     greet();     // Call the object as a function
     #endif
