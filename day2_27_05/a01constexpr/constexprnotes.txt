@@ -1,0 +1,31 @@
+The keyword constexpr was introduced in C++11 and improved in C++14.
+ it means const expression Like const, it can be applied to variables:
+
+constexpr can also be applied to functions and class constructors.
+constexpr indicates that the value, or return value, is constant and,
+where possible, is computed at compile time.
+
+A literal type is one whose layout can be determined at compile time
+
+Look at a01constexpr.cpp , because documenation will use the words literaltype and trivialtype...
+Look at a03literaltype.cpp
+Look at a02trivial.cpp
+
+
+consider below points 
+Use constexpr:
+
+For compile-time constants and constant expressions.
+To optimize performance by moving computations to compile time.
+In template metaprogramming for compile-time checks and computations.
+For constant initialization of static data members.
+Avoid constexpr:
+
+For runtime-dependent computations.
+For complex or time-consuming compile-time computations.
+For objects requiring mutable state.
+For types that do not meet the literal type requirements.
+
+
+   
+

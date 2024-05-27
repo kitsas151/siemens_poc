@@ -1,0 +1,467 @@
+------------------------------
+C++98 is the first standardized version of the C++ language,
+
+Key Features of C++98:
+Templates:
+
+Support for function templates and class templates.
+Template specialization and partial specialization.
+The Standard Template Library (STL), including containers (like vector, list, map), iterators, and algorithms.
+Exception Handling:
+
+try, catch, and throw keywords for handling exceptions.
+std::exception as the base class for standard exceptions.
+Namespaces:
+
+Introduction of namespaces to avoid name collisions.
+cpp
+Copy code
+namespace myNamespace {
+    void myFunction() {
+        // Implementation
+    }
+}
+Input/Output Library:
+
+The <iostream> library for input and output operations, such as std::cin, std::cout, std::cerr, and std::clog.
+Standard Library Components:
+
+The standard library provided a range of utilities, including strings (std::string), and smart pointers (std::auto_ptr, which is deprecated in later standards).
+The bool Type:
+
+Introduction of bool type with true and false literals.
+bool flag = true;
+
+Casting Operators:
+New casting operators (static_cast, dynamic_cast, const_cast, and reinterpret_cast) were introduced to replace C-style casts.
+RTTI (Run-Time Type Information):
+
+Support for typeid and dynamic_cast for safe type conversions.
+
+C++03 was a minor revision that focused on correcting and clarifying the C++98 standard without 
+introducing major new features.
+
+
+------------------------------------------------------------------------------------
+
+Design principles
+
+1. single responsiblity principles
+
+2. open closed principle, use interfaces first and then classes.
+
+3. LSP. hierarchy should be navigated by looking at the top of the hierarchy.
+ 
+ It states that objects of a superclass should be replaceable with objects of a subclass without 
+ affecting the correctness of the program.
+  In other words, a subclass should be able to be used in place of its
+   superclass without causing unexpected behavior.
+
+4. ISP. ensure interface has got minimim methods..
+    clients should not be forced to depend on interfaces they do not use.
+    In other words, it encourages the creation of specific interfaces for clients,
+    rather than one large interface that encompasses all possible behavior.
+
+5. dependancy injection. as far as possible prefer to use aggregation and not composition
+  during OOps.
+ 
+
+look at examples in a00design
+
+--------------------------------------------------------------------------------------
+
+auto.
+
+auto once upon a time storage class.
+today auto in C++ is place holder.
+allowing the compiler to deduce types automatically.
+
+
+example storing lamda expressions.. in a variable if need is there..
+ok ..Use auto for Long and Complex Types:
+
+template<typename T, typename U>
+auto add(T a, U b) -> decltype(a + b) {
+    return a + b;
+}
+
+auto x = someFunction();//assumptions
+//judge and make the correct one.
+auto y = decltype(x)(someOtherFunction());
+
+auto roundingfactor = 0.2;  // is deduced as double, we may need a float
+//we might be thinking we need an int
+
+auto value = {7};  // Deducted as std::initializer_list<int>, not int.
+
+//if container returned a proxy object then auto will surprise.
+auto element = container[index];
+
+
+// copy of vector and not a reference
+std::vector<int> vec = {1, 2, 3};
+auto vecCopy = vec; // Creates a copy, not a reference.
+
+auto list = {1, 2, 3};  // Deducted as std::initializer_list<int>, not a std::vector<int> or array.
+
+//bad usage of auto.
+auto x = 5;  // Not clear if x is int or double
+auto y = {1, 2, 3};  // Deducted as std::initializer_list<int>, which might not be intended
+
+
+-----------------------------------------------------------------
+
+constexpr
+
+The keyword constexpr was introduced in C++11 and improved in C++14.
+ it means const expression Like const, it can be applied to variables:
+
+constexpr can also be applied to functions and class constructors.
+constexpr indicates that the value, or return value, is constant and,
+where possible, is computed at compile time.
+
+A literal type is one whose layout can be determined at compile time
+
+Look at a01constexpr.cpp , because documenation will use the words literaltype and trivialtype...
+Look at a03literaltype.cpp
+Look at a02trivial.cpp
+
+
+consider below points 
+Use constexpr:
+
+For compile-time constants and constant expressions.
+To optimize performance by moving computations to compile time.
+In template metaprogramming for compile-time checks and computations.
+For constant initialization of static data members.
+Avoid constexpr:
+
+For runtime-dependent computations.
+For complex or time-consuming compile-time computations.
+For objects requiring mutable state.
+For types that do not meet the literal type requirements.
+
+-------------------------------------------------------------------------
+
+Lamda expression
+
+1. ability to define a function which can capture its environment.
+2. allows you to create  unnamed functions at the location where they are needed,
+ instead of defining them separately.
+  Lambda functions are particularly useful in situations where you need a 
+  short, one-off function without the overhead of defining a named function
+
+Capture list: Optional. 
+It allows you to capture variables from the surrounding scope for use inside the lambda function.
+ Variables can be captured by value or by reference. The capture list is enclosed in square brackets [ ].
+ when we copy by value, mutable can change the copy of the value but not the originals.
+
+
+
+Parameter list: Optional. It specifies the parameters of the lambda function, similar to regular function parameters.
+
+ If the lambda takes no arguments, you can omit the parameter list or use an empty set of parentheses ().
+
+Return type: Optional. It specifies the return type of the lambda function.
+ If omitted, the return type is deduced by the compiler. 
+ You can specify the return type explicitly using the arrow -> syntax.
+
+Function body: It contains the code that defines the behavior of the lambda function.
+
+Performance-Critical Code:
+
+While modern compilers optimize lambda functions well, there may still be cases where using lambda functions in performance-critical code paths introduces unnecessary overhead. In such cases, it's better to use traditional function pointers or named functions for better control over performance.
+Async Operations:
+
+Lambda functions can capture variables by reference, leading to potential issues with dangling references if the lambda outlives the scope of the captured variables. This can be especially problematic in asynchronous operations where the lambda may execute after the variables it captures have gone out of scope. In such cases, it's safer to use function objects with explicit capture lists or shared pointers to manage the lifetime of captured variables.
+Customization Points in Libraries:
+
+In library interfaces designed for customization points, using lambda functions as arguments can limit the
+ flexibility of customization and tie the library tightly to the lambda's signature.
+  Providing interfaces for customization through function objects or template parameters can offer more 
+  flexibility and decouple the library from specific implementations.
+
+Lambda functions can capture variables by reference, leading to potential issues with dangling references 
+if the lambda outlives the scope of the captured variables.
+ This can be especially problematic in asynchronous operations where the lambda may
+ execute after the variables it captures have gone out of scope.
+ In such cases, it's safer to use function objects with explicit capture lists or
+ shared pointers to manage the lifetime of captured variables.
+
+pNums = make_unique<vector<int>>(nums);
+//...
+      auto a = [ptr = move(pNums)]()
+        {
+           // use ptr
+        };
+
+
+// throw_lambda_expression.cpp
+
+int main() // C4297 expected
+{
+   []() noexcept { throw 5; }();
+}
+
+constexpr lambda expressions
+
+lambda expression as constexpr (or use it in a constant expression) 
+when the initialization of each captured or introduced data member
+ is allowed within a constant expression.
+
+    int y = 32;
+    auto answer = [y]() constexpr
+    {
+        int x = 10;
+        return y + x;
+    };
+
+    constexpr int Increment(int n)
+    {
+        return [n] { return n + 1; }();
+    }
+
+    auto answer = [](int n)
+    {
+        return 32 + n;
+    };
+
+    constexpr int response = answer(10);
+    
+    auto Increment = [](int n)
+    {
+        return n + 1;
+    };
+
+    constexpr int(*inc)(int) = Increment;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*
+    Lambda function signature : 
+                                [capture list] (parameters) ->return type{
+                                        // Function body
+                                }
+
+
+
+--------------------------------------------------
+
+Translation unit
+
+A translation unit is the basic unit of compilation in C++.
+It consists of the contents of a single source file,
+along with the contents of any header files directly or indirectly included
+by that source file.
+Lines that were ignored using conditional preprocessing statements 
+(such as #ifdef, #ifndef, etc.) are excluded from the translation unit1.
+
+Compilation: When you compile your C++ code, the compiler processes translation units.
+ Each translation unit can be compiled into an object file, a library, or an executable program.
+  Understanding translation units helps you grasp how your code is broken down during compilation.
+
+One Definition Rule (ODR): 
+The ODR states that a variable, function, or class must have exactly one definition within a program.
+Translation units play a crucial role in enforcing this rule.
+If you violate the ODR (e.g., by defining the same function in multiple translation units), 
+you’ll encounter linker errors.
+
+Templates: 
+Templates are instantiated separately for each translation unit.
+Knowing this helps you avoid template-related pitfalls and 
+ensures consistent behavior across different parts of your program.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gnu compiler options
+
+-o <file>: Specifies the name of the output file
+g++ main.cpp -o main
+
+
+compile code without linking
+g++ -c main.cpp
+
+compiler flags in g++
+
+Optimization Options
+-O0: No optimization (default).
+
+-O1: Optimizes code, balancing between compilation time and performance.
+
+-O2: Performs more optimizations than -O1.
+
+-O3: Performs even more aggressive optimizations, including those that may increase code size.
+
+-Os: Optimizes for size, enabling most of -O2 optimizations except those that increase code size.
+
+-Ofast: Disregards strict standard compliance for additional performance gains.
+
+g++ -O2 main.cpp -o main
+
+Debugging options
+
+g++ -g main.cpp -o main
+
+-ggdb: Generates debugging information optimized for gdb.
+g++ -ggdb main.cpp -o main
+
+Warning and Error Options
+
+-Wall: Enables all common warning messages.
+
+-Wextra: Enables extra warning messages not covered by -Wall.
+
+-Werror: Treats all warnings as errors.
+
+-pedantic: Enforces strict ISO C++ compliance.
+
+-Wpedantic: Enables warnings demanded by strict ISO C++ compliance.
+
+g++ -Wall -Wextra -Werror main.cpp -o main
+
+-std=c++11: Compiles with C++11 standard.
+
+-std=c++14: Compiles with C++14 standard.
+
+-std=c++17: Compiles with C++17 standard.
+
+-std=c++20: Compiles with C++20 standard.
+
+g++ -std=c++17 main.cpp -o main
+
+Linker Options
+g++ main.cpp -o main -lm  # Links with the math library
+-l libraryname.
+
+g++ main.cpp -o main -L/path/to/lib -lmylib
+-L to tell which folder it needs to search for libraries.
+
+g++ main.cpp -o main -static
+Links with static libraries instead of shared libraries.
+
+Preprocessor Options
+-D<macro>: Defines a macro.
+
+undefines the macro
+g++ -UDEBUG main.cpp -o main
+
+
+tells which directories to search for header files.
+g++ -I/path/to/include main.cpp -o main
+
+
+-v: Displays the commands executed by the compiler.
+g++ -v main.cpp -o main
+
+
+g++ --help
+
+combining multiple options
+g++ -std=c++17 -O2 -Wall -Wextra -g -o my_program main.cpp utils.cpp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

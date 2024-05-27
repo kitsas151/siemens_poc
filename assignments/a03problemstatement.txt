@@ -1,0 +1,184 @@
+
+Questions on lamda 
+
+
+1. go thru the code present in day2_27_05/a03lamda __cpp_fold_expressions
+
+2. 
+Write a program that calculates the sum of squares of
+ elements in a given vector using a lambda expression 
+ with std::accumulate.
+
+3.
+Write a program that takes a vector of integers and filters out
+ the odd numbers using std::copy_if with a lambda expression.
+
+ 4.
+ Write a program that filters out components from a vector based
+  on a condition using std::remove_if with a lambda expression.
+
+  5.
+  mplement a custom algorithm using lambda expressions, such as
+   finding the maximum element, counting occurrences of a
+    value, or finding the average of elements in a vector.
+
+ -------------------------------------------------------------
+Questions on auto.
+
+go thru the files present in  day2_27_05\a02auto folder
+
+1.
+Declare a variable using auto and initialize it with an
+ integer value.
+Declare another variable using auto and initialize it with
+ a floating-point value.
+Print both variables to verify that their types 
+were correctly inferred.
+
+2.
+Create an array of Devices where 
+deviceid int ,name string, location string  and
+ status is bool.
+Use a range-based for loop with auto to iterate over the
+ elements of the array.
+Print each element.
+
+3.
+Write a function that takes two integers as input and returns
+ their sum.
+Use auto as the return type for this function.
+Call the function and print the result.
+
+4.
+Write code that creates a reference to a variable and
+uses auto to deduce the reference type.
+prove the difference  between auto and auto&.
+
+5.
+Write code that creates a pointer to a variable and
+uses auto to deduce the pointer type.
+Explore the difference between auto* and auto with a
+pointer literal.
+
+
+
+
+
+   /*
+
+#include <iostream>
+
+int main() {
+  int value = 42;
+
+  // auto deduces a reference type (int&)
+  auto ref = value;
+
+  // auto& directly creates a reference
+  auto& ref2 = value;
+
+  std::cout << "Type of ref: " << typeid(ref).name() << std::endl;
+  std::cout << "Type of ref2: " << typeid(ref2).name() << std::endl;
+
+  // Modifying through ref modifies the original value
+  ref = 100;
+  std::cout << "value after modifying ref: " << value << std::endl;
+
+  // Modifying through ref2 modifies the original value (same as ref)
+  ref2 = 200;
+  std::cout << "value after modifying ref2: " << value << std::endl;
+
+  return 0;
+}
+
+
+#include <iostream>
+
+int main() {
+  int value = 42;
+
+  // auto deduces a pointer type (int*)
+  auto ptr = &value;
+
+  // auto with a pointer literal creates an int* (not a reference)
+  auto ptr2 = new int(100); // Dynamically allocated memory
+
+  std::cout << "Type of ptr: " << typeid(ptr).name() << std::endl;
+  std::cout << "Type of ptr2: " << typeid(ptr2).name() << std::endl;
+
+  // Modifying through ptr modifies the original value
+  *ptr = 200;
+  std::cout << "value after modifying through ptr: " << value << std::endl;
+
+  // Modifying through ptr2 modifies the allocated memory (not value)
+  *ptr2 = 300;
+  std::cout << "*ptr2 after modification: " << *ptr2 << std::endl;
+  std::cout << "value after modifying ptr2 (not affected): " << value << std::endl;
+
+  // Remember to deallocate memory using delete
+  delete ptr2;
+
+  return 0;
+}
+
+auto ptr = &value;
+auto deduces the type of the address-of operator (&value) which is a pointer to int (int*). This points to the memory location of value.
+auto ptr2 = new int(100);
+auto with a new expression creates a pointer to the
+ allocated memory. Here, it allocates memory for an int
+  with the value 100 and ptr2 becomes a pointer to that
+   memory (int*). 
+   
+   It's important to note that this creates a new variable in
+    memory, not a reference to value.
+
+
+
+
+
+
+
+
+
+   */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------
+
+Questions on OCP, LSP, ISP and Dependancy INversion Principle
+
+1. come with your own two examples on OCP, LSP, ISP
+and dependancy injection.
+
+----------------------------------------------------
+
+
+    
+
+
+
+
+    
+
+
+
