@@ -2,7 +2,7 @@
 #include <type_traits>
 
 #if 0
-auto f()->int
+auto f()  -> int
 {
     return 2;
 }

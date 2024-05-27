@@ -1,0 +1,200 @@
+first day.
+
+1. function design... 
+
+Today
+1. lamda 
+2. auto   -- phase 1
+3. design principles single responsible LSP, isp
+
+next class
+1. Templates  auto phase 2
+
+Lamdas
+
+int *ptr  -- step 1
+ptr = ?  --> step 2
+operating on ptr --> step3
+
+step1 and step3 is done by person X
+step 2 is done by person Y
+
+we cannot escape the fact we can pass functions as input arguments to
+another function.
+
+we are define f1.
+
+f3(f1);
+
+input argument for f3 is a function pointer.
+we are not the owner of f3.
+and sure passing f1 here != calling the f1... calling f1 will happen one day..
+
+
+
+function definition
+	we should have an idea who is going to call it
+
+function calling
+	documentation to see function does..
+	what input indicates and how do we know failure or success
+
+function assignment.
+	we are passing function as a variable
+	function assignment != function calling.
+
+syntax is a function of time
+concept is not.
+
+Lamdas can be used whereever we are using a function pointer..
+Function pointers are used during callbacks..
+call back
+1. we define a function which is forced on us..
+2. we dont call the function
+3. we pass this function to some other person function.
+4. that person during some circumstance will all our function.
+
+
+Lamdas
+can be used to do the above..
+1. we can define the function
+2. we can assign the function.
+3. I am going to call the function. ok if interested can be done.. should you
+use lamda should be "thought" about..
+
+
+
+where can we create lamda expressions.
+
+1. answer anywhere.. most of times where do we see lamda expressions
+inside some function.
+
+2. we are say we are writing lambda inside a f2 function.
+this f2 function can have some local variables.. the lamda can capture
+these local variables in the capture clause [  ]
+
+
+
+
+0. think who is going to use the lamda ..  
+1. we are defining a function when we say we are writing a lamda (T)
+2. think are we defining the lamda inside some function (technically answer need
+not be , practically most of times yes.. )we are insdie some function f1
+3. think do you capture any variables of the f1 function inside your lamda...
+yes , then think by value or by reference.
+4. lamda can have its own input arguments..
+5. body of the lamda.. which is ok.. based on 0th.
+
+we want to understand X , X needs Y. but we dont know Y
+so no point in doing phd in Y and forgetting X. learn about X to solve Y.
+
+X = lamda
+Y = auto
+
+auto .. place holder, we are telling the compiler hey you judge the data type
+of variable by looking at the statement.
+
+
+by using lamda we can
+
+1. create a function
+2. assign a function
+3. capture its environment if need is there.
+4. typically usage is callbacks..
+I will give you a function, you wont call it immediately but under some circumstance
+you will definitely call it.
+
+by generalizing the learning.. amount of things we remember will reduce.
+what does it mean technically
+
+
+1. programming language..
+2. oops
+3. design patterns.
+4. frameworks.
+5. project.
+
+Lamda becaue of capture expression , funtions become stateful.
+you can make functions which can remember the state..
+
+f1().f2().f3();
+in whatever returntype f2.
+
+
+
+
+
+
+
+ day 1
+style of coding.. all global functions..
+
+
+map<int,Device*>
+
+performance rule 1
+
+1. avoid making copies, avoid unnecessary memory allocations
+
+
+
+
+
+
+lamda expression
+
+1. syntax little bit
+2. usage which is more relevant..
+3. minor way about auto.. --> you are telling compiler hey try to judge what
+the data type is.
+
+Templates..  ( base as c++17 and tell features which are exclusive to c++20 separately)
+again we will back to auto
+
+constexpr .. forcing compiler to make a call.
+
+performance..
+
+
+
+
+
+
+
+
+class A
+{
+
+
+void operator+(A &temp)
+{
+	std::cout  <<"this is + operator called";
+}
+
+void operator new(Function pointer)
+
+
+}
+
+
+A obj;
+A obj2;
+obj+obj2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
