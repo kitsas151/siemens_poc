@@ -2,7 +2,7 @@
 Questions on lamda 
 
 
-1. go thru the code present in day2_27_05/a03lamda __cpp_fold_expressions
+1. go thru the code present in day2_27_05/a03lamda 
 
 2. 
 Write a program that calculates the sum of squares of
