@@ -4,12 +4,6 @@
 #include <string_view>
 #include <vector>
 
-template<typename X>
-class A :public std::vector<X>
-{
-
-
-};
 
 
 
@@ -21,6 +15,16 @@ struct Car
 
 int main()
 {
+
+  
+  
+
+
+  
+
+  
+
+
 
   A<int> obj;
   std::array<Car, 3> cars{ { { "Volkswagen", "Golf" },
@@ -37,7 +41,8 @@ int main()
 
       // Sort the cars by their make.
       return a.make < b.make;
-  });
+  }
+  );
 
   std::cout << "Comparisons: " << comparisons << '\n';
 

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <functional>
 
+
+//person X has created the Event system
+
 // Simulate an event-driven system
 class EventSystem {
 public:
@@ -18,6 +21,11 @@ private:
     std::vector<std::function<void()>> handlers;
 };
 
+
+
+
+//person Y is creating the main function.
+
 int main() {
     EventSystem eventSystem;
 
@@ -26,6 +34,11 @@ int main() {
     eventSystem.registerHandler([&eventCount]() {
         std::cout << "Event occurred. Total events: " << ++eventCount << std::endl;
     });
+
+
+    
+
+
 
     // Trigger events
     eventSystem.triggerEvents();

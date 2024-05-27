@@ -12,9 +12,13 @@ int main() {
         return sum;
     };
 
+
+
     // Apply the stateful lambda to the signal
     std::vector<int> cumulative_result;
     std::transform(signal.begin(), signal.end(), std::back_inserter(cumulative_result), cumulative_sum);
+
+    
 
 
     /*

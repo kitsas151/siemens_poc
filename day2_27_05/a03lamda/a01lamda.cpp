@@ -9,7 +9,7 @@
 // throw_lambda_expression.cpp
 int main() // C4297 expected
 {
-   []() noexcept { std::cout << "hi"; throw 5; }();
+   []() noexcept { std::cout << "hi"; throw 5; };
 }
 
 #endif
@@ -71,12 +71,15 @@ int main()
 
 #if 0
 
-static int i=3;
+
 
 constexpr int Increment(int n)
     {
         return [n] { return n + 1; }();
     }
+
+
+    static int i=3;
 
 int main()
 {
@@ -95,6 +98,7 @@ int main()
     #if 0
    int victim =2;
    int notvictim =44;
+   
    auto func = [victim]() mutable noexcept {
         victim=44;
         i=44;
@@ -102,7 +106,23 @@ int main()
       
 
    };
-   func();
+  func();
+
+  /*
+  
+  create a fp
+  create a function and assing it to fp
+  operate on fp.. leading to function call.
+  what is stupid this.. I
+  
+  */
+
+
+
+
+
+
+
 
     #endif
 
@@ -142,10 +162,15 @@ int main()
     #if 0
     //Declare a lambda function and call it directly
   
-    [](){
-       std::cout << "Hello World!" << std::endl;
-    }();
+    auto x=[](){
+        std::cout << "Hello World!" << std::endl;
+    };
+    x();
+
+
+
   
+    
 
     //Lambda function that takes parameters
 
@@ -153,6 +178,9 @@ int main()
     [](double a, double b){
        std::cout << "a + b : " << (a + b)  << std::endl;
     }(10.0,50.0);
+
+
+
     
    
     auto func1 = [](double a, double b){

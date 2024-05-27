@@ -148,8 +148,10 @@ Lamda expression
 1. ability to define a function which can capture its environment.
 2. allows you to create  unnamed functions at the location where they are needed,
  instead of defining them separately.
+
   Lambda functions are particularly useful in situations where you need a 
   short, one-off function without the overhead of defining a named function
+  
 
 Capture list: Optional. 
 It allows you to capture variables from the surrounding scope for use inside the lambda function.
