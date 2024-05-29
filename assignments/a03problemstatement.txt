@@ -23,6 +23,71 @@ Write a program that takes a vector of integers and filters out
     value, or finding the average of elements in a vector.
 
  -------------------------------------------------------------
+
+Questions on Template
+
+0. go thru the programs written in day3_29_05\a02template
+
+1.  (Operator Overloads in Templates) Write a simple
+function template for predicate function isEqualTo that
+compares its two arguments of the same type with the equality
+operator ( == ) and returns true if they are equal and false
+otherwise. Use this function template in a program that calls
+isEqualTo only with a variety of fundamental types. Now write a
+separate version of the program that calls isEqualTo with a
+user-defined class type, but does not overload the equality
+operator. What happens when you attempt to run this program?
+Now overload the equality operator (with the operator function)
+operator== . Now what happens when you attempt to run this
+
+
+2. write a template function which will return the uppercase
+of a string if template parameter is of type string and 
+return double of a numeric type in case parameter of the template is
+a numeric type.
+
+
+3. open the code 
+https://github.com/cusplibrary/cusplibrary/tree/main/examples/Algorithms
+and see are you able to understand the syntax.
+https://github.com/cusplibrary/cusplibrary/tree/main/cusp/detail
+open the header files and see are you able to understand the syntax.
+
+4. open the code and understand the
+a09_variadictemplate.cpp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------
+
 Questions on auto.
 
 go thru the files present in  day2_27_05\a02auto folder
