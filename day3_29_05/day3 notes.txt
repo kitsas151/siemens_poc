@@ -1,0 +1,78 @@
+Last session
+
+1. lambda expression..
+
+1. capture the environment 
+2. practically.... we can define the function and assign
+to some other function..
+3. treat an object like a function, functor.
+
+Templates .. generic programming..
+
+template.. we are making the code data type independent..
+
+code...
+
+1. template function
+2. template class.
+
+whenever see a template function or a class. we are not seeing one thing.
+we are seeing a family of functions or family of classes.
+
+how template is instantiated..
+
+int *p =?
+? is a int variable usually.
+
+Base *b = ?
+? need not be base class object, it can be a derived class object also..
+
+we  will join back in 15 minutes time.
+
+1. in your logic think where you can apply generic programming.
+2. Template --  class, function
+3. template specialization, why are we doing that..
+4. template instantiated.. 
+4.1 when we use the template
+calling of function
+or creating the object of the class
+explicit template instantiation.  
+5.i want my template function to take variable number of inputs.
+variadic temple
+parameter packs  -- input
+6. we are taking some inputs for the template do we put some constraints
+in terms of the data type..
+template<typename X> // X to be data type which is related to numbers.
+int, float. double but not  a string
+
+Thank you
+
+
+i=3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
