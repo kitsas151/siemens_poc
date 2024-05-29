@@ -8,9 +8,9 @@ https://cppinsights.io/ just to see how the code gets generated.
 */
 
 
-#if 0
+#if 1
 
-template <typename T>
+template <class T>
 T minimum(const T& lhs, const T& rhs)
 {
     return lhs < rhs ? lhs : rhs;
@@ -18,6 +18,24 @@ T minimum(const T& lhs, const T& rhs)
     //observe two operations one for T return by copy
     // observe < symbol must be overloaded for the data type in case it is a class type.
 }
+
+
+int main()
+{
+
+int result = minimum(2,3);
+double dresult = minimum<double>(2.3,4.3);
+double doubleArray[]={2,3};
+char arrayArray[]={'a','b'};
+sort<double>(doubleArray,3);
+sort(doubleArray,3);
+
+
+std::cout  <<"hi";
+return 0;
+
+}
+
 
 /*
 T is a template parameter;
@@ -41,6 +59,13 @@ void sort<char>(char arr[], int size) {
     // Implementation specific to char arrays
     // (e.g., Counting Sort, Radix Sort, etc.)
     std::cout << "template specialization with respect to char";
+    
+}
+
+int sort(char freak[], int length)
+{
+
+   return 3;
 }
 
 
@@ -82,31 +107,17 @@ public:
 
 
 
-int main()
-{
-
-
-int result = minimum<int>(2,3);
-double dresult = minimum<double>(2.3,4.3);
-double doubleArray[]={2,3};
-char arrayArray[]={'a','b'};
-sort<double>(doubleArray,3);
-sort(doubleArray,3);
-
-
-
-std::cout  <<"hi";
-return 0;
-
-}
 
 
 #endif
 
 
-#if 0
+#if 1
 
-template <typename T, typename U, typename V=std::string> struct POC{
+
+
+template <typename T, typename U, typename V=std::string>
+ struct POC{
 
         T tvar;
         U uvar;
@@ -133,9 +144,9 @@ int main()
 #endif
 
 
-#if 1
+#if 0
 
-template<typename U,int,int>
+template<typename U,int>
 class Arr
 {
 
@@ -164,8 +175,7 @@ int main()
 #if 0
 
 //later, the compiler deduces the type of a non-type template argument that's declared with auto:
-template <auto x> constexpr auto constant = x;
-
+template <auto x>  auto constant = x;
 int main()
 {
 
@@ -178,7 +188,7 @@ int main()
 
 #endif
 
-#if 0
+#if 1
 
 // partial_specialization_of_class_templates.cpp
 #include <stdio.h>
@@ -190,6 +200,9 @@ template <class T> struct PTS {
    };
 };
 
+
+
+#if 0
 template <class T> struct PTS<T*> {
    enum {
       IsPointer = 1,
@@ -203,6 +216,8 @@ template <class T, class U> struct PTS<T U::*> {
       IsPointerToDataMember = 1
    };
 };
+
+#endif
 
 struct S{};
 

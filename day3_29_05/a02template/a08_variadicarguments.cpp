@@ -12,21 +12,25 @@ it expands the parameter packs into separate names.
 */
 
 
-#if 0
+#if 1
 void print() {
     std::cout << "End of arguments." << std::endl;
 }
 
 
 // Recursive variadic function template
-template<typename T, typename... Args>
-void print(T first, Args... args) {
-    std::cout << first << std::endl;
+//template<typename T, typename... Args>
+template<typename... Args>
+void print(Args... args) {
+
+    std::cout << "hello"  << args...[0]  << __PRETTY_FUNCTION__<< std::endl;
     print(args...); // Recursively call print with the remaining arguments
 }
 
+
+
 int main() {
-    print(1, 2.5, "Hello, world!", 'A');
+    print(1, 2.5);
     return 0;
 }
 
@@ -90,6 +94,7 @@ template <typename... Types>
 void print(Types... args) {
     // Using a fold expression to print all arguments
     ((cout << args << endl), ...);
+    std::cout << ...;
 }
 
 int main() {

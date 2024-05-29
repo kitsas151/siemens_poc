@@ -2,7 +2,7 @@
 #include <utility>
 
 
-#if 0
+#if 1
 // Template alias for a pair of ints
 template<typename T>
 using Pair = std::pair<T, T>;
