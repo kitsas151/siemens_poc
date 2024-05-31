@@ -31,14 +31,24 @@ std::cout << std::is_integral_v<std::string> << '\n'; // Outputs 0 (false)
 #endif
 
 
-#if 0
+#if 1
 // Function template with SFINAE to restrict to integral types
 template<typename T>
 typename std::enable_if<std::is_integral<T>::value, int>::type
 printValue(T value) {
-    std::cout << "The value is: " << value << std::endl;
+    std::cout << "\n The value is: " << value << std::endl;
     return 3;
 }
+
+/*
+template<typename T>
+typename std::enable_if<!std::is_integral<T>::value, void>::type
+printValue(T value) {
+    //static_assert(std::is_integral_v<T>::value, "The value must be an integral type");
+    std::cout << "\n data type given is not an int type.";
+}
+*/
+
 
 
 
@@ -61,12 +71,6 @@ It uses std::enable_if to conditionally enable or disable the function based on 
 
 
 
-template<typename T>
-typename std::enable_if<!std::is_integral<T>::value, void>::type
-printValue(T value) {
-    //static_assert(std::is_integral_v<T>::value, "The value must be an integral type");
-    std::cout << "data type given is not an int type.";
-}
 
 
 

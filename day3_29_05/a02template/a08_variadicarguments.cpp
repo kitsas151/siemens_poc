@@ -72,13 +72,14 @@ it expands the parameter packs into separate names.
 
 */
 
-#if 0
+#if 1
 
 #include <iostream>
 
 using namespace std;
 
 template <typename T> void print(const T& t) {
+    //what are you doing with t
     cout << t << endl;
 }
 
@@ -94,8 +95,8 @@ template <typename First, typename... Rest> void print(const First& first, const
 int main()
 {
     
-    print(1,2,3,4);
-    //print(1,"hello",3.3,true);
+    //print(1,2,3,4);
+    print(1,"hello",3.3,true);
     
     
   }
@@ -262,6 +263,8 @@ private:
     std::array<bool, sizeof...(Inputs)> inputValues; // Input values
 };
 
+
+
 int main() {
     // Example usage: Create an AND gate with 3 inputs
     Gate andGate("AND", true, true, true);
@@ -306,9 +309,7 @@ auto unaryRightSubtract(Items... items) {
 }
 
 int main() {
-   std::cout << "Unary left and right fold with addition:"
-      << std::format("\n{}{}\n{}{}\n\n",
-         "unaryLeftAdd(1, 2, 3, 4): ", unaryLeftAdd(1, 2, 3, 4),
+   std::cout <<  unaryLeftAdd(1, 2, 3, 4);
          "unaryRightAdd(1, 2, 3, 4): ", unaryRightAdd(1, 2, 3, 4));
 
    std::cout << "Unary left and right fold with subtraction:"

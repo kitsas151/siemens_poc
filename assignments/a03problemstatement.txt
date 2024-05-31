@@ -73,10 +73,12 @@ subtract (2,3) , it should give the correct answers.
 of arguments.
 add(2,3,4,5)
 multiply(4,6)
-subtract(4,7)
+subtract(4,7,1)
 
-08). ensure you move the template code into a header file. header implementation
+08).06 th example,  ensure you move the template code into a header file. header implementation
 and ensure it works only for int and double make a static library of implementation
+
+
 and write a separate cpp with main to prove it works.
 
 

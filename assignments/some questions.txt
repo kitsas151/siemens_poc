@@ -1,14 +1,44 @@
 
 1. x->f1(),if we know x is a pointer .then x is a pointer of type.
 
+
+
 2. Rct r; int area = r.setLength(3).setBreadth(4).getArea();
 what should be return type of setLength and setBreadth...
+
+class Rct
+{
+
+public:
+	Rct& setLength(const int &x)
+	{
+			return *this;
+
+	}
+
+
+}
+
+Rct&   setLength  return *this;
+
+
+
+
+
+
+
+
+
+
 
 3. 
 int *ptr =new int, here which one is on heap.
 a. new int
 b. ptr.
 c. both new int and  ptr.
+
+
+
 
 4. int &a=7;
 it wont compile 
@@ -18,30 +48,44 @@ it will compile.
 const functions is applicable to
 a. non static functions of the class
 b. static functions of the class.
-c. global functions of the class.
+c. global functions 
+
 
 
 6. mutable word is used in context of
 1. variables
 2. functions
-3. lamdas
+3. lamdas   
 4. classes.
+
+class a
+{
+mutable int a;
+
+void f1()  {  a =3;}
+
+
+}
+
+
+
+
+
 
 7. 
 A obj; obj =3; to make this compile
  we need to 
  a) overload the assingment operator in class A
  b) overload the cast operator
- c) overload cast operator.
- d) none of the above.
- correct answer is a.
+ c) none of the above.
+ 
  
  8. 
 runtime polymorphism means we need
 a) virtual function call.
 b) base class pointer.
 c) both a and b.
-correct answer is c.
+
 
 9. 
 Lambda in c++ helps in
@@ -55,6 +99,8 @@ c) both a and b.
 2. any member function
 3. only with constructor.
 
+
+
 11.
 class A
 {
@@ -63,7 +109,28 @@ public:
 	void f1() { f2(); }
 	virtual void f2()  { std::cout << 2; >
 };
+
+class B:public A
+{
+
+ virtual void f2() { std::cout << 3; }
+
+
+};
+
+int main()
+{
+	B obj;
+	obj.f1();
+
+
+}
+
+
 if f1 function is called, what it will print.
+
+
+
 
 
 12.
@@ -80,7 +147,7 @@ public:
 int main()
 {
 	A obj;
-	std::cout << obj1.geti();
+	std::cout << obj.geti();
 
 }
 
