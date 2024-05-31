@@ -12,6 +12,23 @@ Look at a03literaltype.cpp
 Look at a02trivial.cpp
 
 
+
+standard layout
+In C++, a standard-layout type refers to a class or struct that satisfies certain conditions. 
+
+
+No Non-Static Data Members That Aren’t Standard-Layout:
+ A standard-layout class must not have any non-static data members that aren’t themselves standard-layout.
+No Virtual Functions and No Virtual Base Classes:
+It should not contain virtual functions or have virtual base classes.
+Uniform Access Control: All non-static data members must have the same access control
+ (i.e., either all public, all protected, or all private).
+No Non-Standard-Layout Base Classes: The class should not have base classes that aren’t standard-layout.
+In summary, a standard-layout type is memcopy-able and has a layout defined in such a way that it can be 
+consumed by C programs1. If you encounter a type that meets these criteria,
+ you’re dealing with a standard-layout class or struct in C++
+
+
 consider below points 
 Use constexpr:
 

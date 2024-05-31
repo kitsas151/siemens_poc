@@ -14,6 +14,6 @@ void printValue(Integral auto value) {
 
 int main() {
     printValue(42);      // OK, 42 is an integral type
-    // printValue(3.14); // Compile-time error, 3.14 is not an integral type
+    printValue(3.14); // Compile-time error, 3.14 is not an integral type
     return 0;
 }

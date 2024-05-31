@@ -52,51 +52,47 @@ open the header files and see are you able to understand the syntax.
 3. create a template array where [] operator is overloaded to add an element into the array and 
 and get(index) function should return the element from the array.
 
-4. write a template function which will return the uppercase
+
+----------------------------------------------------------
+
+04. open the code and understand the
+a09_variadictemplate.cpp
+
+05). write a template function which will return the uppercase
 of a string if template parameter is of type string and 
 return double of a numeric type in case parameter of the template is
 a numeric type.
 
-5. open the code and understand the
-a09_variadictemplate.cpp
+06). write a templatized calculator which can take only all category of numeric types and
+ float types. 
+add(2,3).. it should be able to sum it up.  9
+multiply (2,3)  , it should able to to 24
+subtract (2,3) , it should give the correct answers.
 
+07). ensure you save the copy of the calculator program and make it take any number 
+of arguments.
+add(2,3,4,5)
+multiply(4,6)
+subtract(4,7)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+08). ensure you move the template code into a header file. header implementation
+and ensure it works only for int and double make a static library of implementation
+and write a separate cpp with main to prove it works.
 
 
 ------------------------------------------------------
+
+09)
+look at examples in day2_27_05\a01constexpr code samples.
+
+in the calculator program, think where all you can use constexpr.
+and use it and see whether it works.
 
 Questions on auto.
 
 go thru the files present in  day2_27_05\a02auto folder
 
-1.
+10).
 Declare a variable using auto and initialize it with an
  integer value.
 Declare another variable using auto and initialize it with
@@ -104,7 +100,7 @@ Declare another variable using auto and initialize it with
 Print both variables to verify that their types 
 were correctly inferred.
 
-2.
+11).
 Create an array of Devices where 
 deviceid int ,name string, location string  and
  status is bool.
@@ -112,26 +108,24 @@ Use a range-based for loop with auto to iterate over the
  elements of the array.
 Print each element.
 
-3.
+
+12)
 Write a function that takes two integers as input and returns
  their sum.
 Use auto as the return type for this function.
 Call the function and print the result.
 
-4.
+13).
 Write code that creates a reference to a variable and
 uses auto to deduce the reference type.
 prove the difference  between auto and auto&.
 
-5.
+
+14).
 Write code that creates a pointer to a variable and
 uses auto to deduce the pointer type.
 Explore the difference between auto* and auto with a
 pointer literal.
-
-
-
-
 
    /*
 
@@ -201,15 +195,12 @@ auto with a new expression creates a pointer to the
    It's important to note that this creates a new variable in
     memory, not a reference to value.
 
-
-
-
-
-
-
-
-
    */
+
+---------------------------------------------------------------------------
+
+
+
 
 
 

@@ -1,0 +1,109 @@
+
+1. x->f1(),if we know x is a pointer .then x is a pointer of type.
+
+2. Rct r; int area = r.setLength(3).setBreadth(4).getArea();
+what should be return type of setLength and setBreadth...
+
+3. 
+int *ptr =new int, here which one is on heap.
+a. new int
+b. ptr.
+c. both new int and  ptr.
+
+4. int &a=7;
+it wont compile 
+it will compile.
+
+5. 
+const functions is applicable to
+a. non static functions of the class
+b. static functions of the class.
+c. global functions of the class.
+
+
+6. mutable word is used in context of
+1. variables
+2. functions
+3. lamdas
+4. classes.
+
+7. 
+A obj; obj =3; to make this compile
+ we need to 
+ a) overload the assingment operator in class A
+ b) overload the cast operator
+ c) overload cast operator.
+ d) none of the above.
+ correct answer is a.
+ 
+ 8. 
+runtime polymorphism means we need
+a) virtual function call.
+b) base class pointer.
+c) both a and b.
+correct answer is c.
+
+9. 
+Lambda in c++ helps in
+a) defining a function
+b) passing the function as a variable.
+c) both a and b.
+
+
+10. explicit word is used with
+1. class
+2. any member function
+3. only with constructor.
+
+11.
+class A
+{
+
+public:
+	void f1() { f2(); }
+	virtual void f2()  { std::cout << 2; >
+};
+if f1 function is called, what it will print.
+
+
+12.
+class A
+{
+
+public:
+	int i;
+
+	A():i(0)  { A(3);  }
+	A(int x):i(x)  {   }
+	int geti() const { return i;}
+}
+int main()
+{
+	A obj;
+	std::cout << obj1.geti();
+
+}
+
+
+
+
+
+	
+	
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

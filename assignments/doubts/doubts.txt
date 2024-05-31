@@ -1,1 +1,6 @@
 variable arguments with only parameter packs.
+inheritance 
+constexpr tells the compiler variable creation 
+
+
+

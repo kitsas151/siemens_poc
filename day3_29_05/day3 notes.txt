@@ -44,35 +44,3 @@ parameter packs  -- input
 in terms of the data type..
 template<typename X> // X to be data type which is related to numbers.
 int, float. double but not  a string
-
-Thank you
-
-
-i=3;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -91,3 +91,25 @@ int main() {
 
 
 #endif
+
+#if 0
+
+#include <iostream>
+
+template <typename T>
+constexpr void printInfo(const T& value) {
+    if constexpr (std::is_integral_v<T>) {
+        std::cout << "Integer Value: " << value << std::endl;
+    } else {
+        std::cout << "Non-Integer value: " << value << std::endl;
+    }
+}
+
+int main() {
+    printInfo(10);
+    printInfo(3.15);
+    return 0;
+}
+
+
+#endif

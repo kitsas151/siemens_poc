@@ -104,6 +104,9 @@ int main()
 #if 1
 
 
+
+void freak(); //no surpises.. old c behaviour 
+
 template<class T>
 struct Z // template definition
 {

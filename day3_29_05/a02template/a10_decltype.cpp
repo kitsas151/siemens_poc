@@ -1,4 +1,4 @@
-#if 1
+#if 0
 
 #include <iostream>
 
@@ -9,7 +9,9 @@ int main() {
   decltype(i) j = i * 2;
 
   // decltype((i)) is the type of the expression (i), which is int
-  decltype((i)) k = i * 3;
+  //decltype((i)) k = i *3;
+  //here in the above line it is rvalue, you cannot assign to it.
+  
 
   // decltype(&i) is the type of the pointer to i, which is int*
   decltype(&i) l = &i;
@@ -17,9 +19,140 @@ int main() {
   // decltype(i++) is the type of the expression i++, which is int
   decltype(i++) m = i;
 
-  std::cout << j << " " << k << " " << *l << " " << m << std::endl;
+  //std::cout << j << " " << k << " " << *l << " " << m << std::endl;
+  std::cout << m << (*l) << j << "\n";
 
   return 0;
+}
+
+#endif
+
+#if 1
+
+
+#include <iostream>
+#include <utility> // for std::declval
+
+// Function template to multiply two values
+template <class A, class B>
+void MultiplyAB(A a, B b, decltype(a * b)& output) {
+    output = a * b;
+}
+
+int main() {
+    int intVal = 5;
+    double doubleVal = 3.14;
+    float floatVal = 2.5;
+
+    decltype(intVal * doubleVal) result1; // Deduces the type of intVal * doubleVal
+    decltype(floatVal * doubleVal) result2; // Deduces the type of floatVal * doubleVal
+
+    MultiplyAB(intVal, doubleVal, result1);
+    MultiplyAB(floatVal, doubleVal, result2);
+
+    std::cout << "Result 1: " << result1 << std::endl; // Should be 15.7
+    std::cout << "Result 2: " << result2 << std::endl; // Should be 7.85
+
+    return 0;
+}
+
+
+
+
+#endif
+
+#if 0
+
+// C++ program to demonstrate use of decltype in functions
+#include <iostream>
+using namespace std;
+
+// A generic function which finds minimum of two values
+// return type is type of variable which is minimum
+template <class A, class B>
+auto findMin(A a, B b) -> decltype(a < b ? a : b)
+{
+	return (a < b) ? a : b;
+}
+
+// driver function to test various inference
+int main()
+{
+	// This call returns 3.44 of double type
+	cout << findMin(4, 3.44) << endl;
+
+	// This call returns 3 of double type
+	cout << findMin(5.4, 3) << endl;
+
+	return 0;
+}
+
+
+
+#endif
+
+#if 0
+
+
+// decltype_1.cpp
+// compile with: cl /EHsc decltype_1.cpp
+
+#include <iostream>
+#include <string>
+#include <utility>
+#include <iomanip>
+
+using namespace std;
+
+template<typename T1, typename T2>
+auto Plus(T1&& t1, T2&& t2) ->
+   decltype(forward<T1>(t1) + forward<T2>(t2))
+{
+   return forward<T1>(t1) + forward<T2>(t2);
+}
+
+class X
+{
+   friend X operator+(const X& x1, const X& x2)
+   {
+      return X(x1.m_data + x2.m_data);
+   }
+
+public:
+   X(int data) : m_data(data) {}
+   int Dump() const { return m_data;}
+private:
+   int m_data;
+};
+
+int main()
+{
+   // Integer
+   int i = 4;
+   cout <<
+      "Plus(i, 9) = " <<
+      Plus(i, 9) << endl;
+
+   // Floating point
+   float dx = 4.0;
+   float dy = 9.5;
+   cout <<
+      setprecision(3) <<
+      "Plus(dx, dy) = " <<
+      Plus(dx, dy) << endl;
+
+   // String
+   string hello = "Hello, ";
+   string world = "world!";
+   cout << Plus(hello, world) << endl;
+
+   // Custom type
+   X x1(20);
+   X x2(22);
+   X x3 = Plus(x1, x2);
+   cout <<
+      "x3.Dump() = " <<
+      x3.Dump() << endl;
 }
 
 #endif
@@ -45,7 +178,8 @@ This allows the function to work with various types while
 */
 // Template function to calculate the product of two values
 template<typename T, typename U>
-auto product(T x, U y) -> decltype(x * y) {
+
+auto product(T x, U y) ->decltype(x * y)  {
     return x * y;
 }
 
@@ -62,7 +196,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 #include <iostream>
 #include <complex>
 #include <vector>
@@ -137,8 +271,8 @@ public:
 
 int main() {
     Resistor r1(100); // 100 ohm resistor
-    Capacitor c1(1e-6); // 1 microfarad capacitor
-    Inductor l1(1e-3); // 1 millihenry inductor
+    Capacitor c1(1e-6); // 1 microfarad capacitor // the value assigned to x is (1 \times 10^{-6
+    Inductor l1(1e-3); // 1 millihenry inductor //value assingned to l1 is 1 times 10^-3
 
     double frequency = 1000; // 1 kHz
 

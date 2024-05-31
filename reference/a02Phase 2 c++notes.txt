@@ -320,6 +320,14 @@ Errors in template code can sometimes manifest as cryptic
   messages and debug template code is essential.
 
 
+  some more terminologies.
+
+  A template with at least one parameter pack is called a variadic template.
+
+  A template parameter pack is a template parameter that accepts zero or more
+   template arguments (non-types, types, or templates).
+
+
 -----------------------------------------------------------------
 
 
@@ -512,6 +520,86 @@ With C++20 and later versions, concepts introduce a way to
   syntax can be messy but we will get used to it, key things
   is figure out scenarios where we want to use templates 
   in our project.
+
+
+  // Variadic template function to handle multiple arguments
+template<typename T, typename... Args> //variadic template
+void log(T first, Args... args)  // args is the parameter pack
+ {
+    std::cout << first << " ";
+    log(args...); // Recursively call log with the remaining arguments
+}
+
+args... is unpacking the parameter pack, see its usage in examples of 
+a08_variadicarguments.cpp in day3_29_05 template folder.
+
+can be used on classes and functions
+
+--------------------------------------------------------------------
+
+The keyword constexpr was introduced in C++11 and improved in C++14.
+ it means const expression Like const, it can be applied to variables:
+
+constexpr can also be applied to functions and class constructors.
+constexpr indicates that the value, or return value, is constant and,
+where possible, is computed at compile time.
+
+A literal type is one whose layout can be determined at compile time
+
+Look at a01constexpr.cpp , because documenation will use the words literaltype and trivialtype...
+Look at a03literaltype.cpp
+Look at a02trivial.cpp
+
+
+
+standard layout
+In C++, a standard-layout type refers to a class or struct that satisfies certain conditions. 
+
+
+No Non-Static Data Members That Aren’t Standard-Layout:
+ A standard-layout class must not have any non-static data members that aren’t themselves standard-layout.
+No Virtual Functions and No Virtual Base Classes:
+It should not contain virtual functions or have virtual base classes.
+Uniform Access Control: All non-static data members must have the same access control
+ (i.e., either all public, all protected, or all private).
+No Non-Standard-Layout Base Classes: The class should not have base classes that aren’t standard-layout.
+In summary, a standard-layout type is memcopy-able and has a layout defined in such a way that it can be 
+consumed by C programs1. If you encounter a type that meets these criteria,
+ you’re dealing with a standard-layout class or struct in C++
+
+
+consider below points 
+Use constexpr:
+
+For compile-time constants and constant expressions.
+To optimize performance by moving computations to compile time.
+In template metaprogramming for compile-time checks and computations.
+For constant initialization of static data members.
+Avoid constexpr:
+
+For runtime-dependent computations.
+For complex or time-consuming compile-time computations.
+For objects requiring mutable state.
+For types that do not meet the literal type requirements.
+
+-------------------------------------------------
+look at examples in day4_31_05
+
+	In-class Initializers for Non-static Data Members 
+    class a
+    {
+        int i =0; //this is called as in class initalizer.
+
+    }
+
+    
+
+
+
+
+
+
+
 
 
 

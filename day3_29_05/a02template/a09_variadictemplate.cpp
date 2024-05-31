@@ -44,7 +44,7 @@ Circuit<Args...> makeCircuit(Args... args) {
 }
 
 int main() {
-    auto myCircuit = makeCircuit("Resistor 10kΩ", "Capacitor 100μF", "Inductor 1mH");
+    auto myCircuit = makeCircuit("Resistor 10", "Capacitor 100", "Inductor 1mH");
 
     std::cout << "First component: " << myCircuit.getComponent() << std::endl;  // Output: Resistor 10kΩ
     std::cout << "Second component: " << myCircuit.getNext().getComponent() << std::endl;  // Output: Capacitor 100μF
