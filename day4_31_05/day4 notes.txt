@@ -1,0 +1,185 @@
+
+1. parameter pack  we are ensuring that template function can take n number of arguments..
+
+what is that you want to do with it..
+
+1. aggregate operations..
+2. I want to pick one by one..each of the parameter..
+
+if we are doing c programming
+
+
+f1(1,2,3....)
+
+void f1()
+will i able able to pick 1, 2,3
+
+
+
+#include <iostream>
+template<typename... Args>
+void print(Args... args) {
+    auto print_single = [](const auto& arg) {
+        std::cout << arg << '\n';
+    };
+    (print_single(args), ...);
+}
+int main() {
+    print(1, 2.5, "Hello", 'c');
+    return 0;
+}
+
+
+parameter packs should it contain same type, answer is no...
+but practically speaking...  you want to have some kind of commonality...
+
+
+f1(0,false,"hello",Device());
+
+f1(Device, 0, false,"hello");
+
+if you are passing to a function which takes a parameter pack.
+we can pick up each of the element not a problem that is easy only.
+what are you planning to do with each element.?
+we have to judge its type? 
+and then decide what operation to perform on that type.
+
+
+question
+I want to have a vector of some object pointers.
+there is a base class and derived class.
+there are two templates..
+
+quick summary
+
+1. writing a function with parameter pack and ensuring the function is getting called
+is relatively easier job.
+2. inside the function what is the "logic" we want to do, that needs lot of detailing.
+3. putting some constraints on the templates.. that we have to learn a topic typetraits.
+
+
+0. justify your algorithm needs a template
+1. template function, template class.
+2. specialization of template.
+3. instantiation of the template. (implicit, explicit)
+4. the number of arguments you can pass can vary.. variadic templates, parameter packs..
+5. we want to put some constraints on the data type we get in templates.. because operations
+inside the function need those constraints.
+
+
+
+
+type_traits
+
+during template programming , i am going to get a data type called X. i want to check
+what X is, apply some constraints on it.. one way of doing this is by using typetraits
+
+
+i am writing  a template function and I want to restrict this template function to used
+with only X or Y data types..
+
+template<typename X, typename Y>
+? max(X x, Y y)
+{
+
+
+}
+why you want to put constraints on the template functions?
+because operations inside those functions require that constraints.
+
+auto max(T x, V y)
+{
+return  x-y;
+
+}
+
+#include <iostream>
+class A
+{
+
+};
+
+int main()
+{
+A a;
+std::cout << a;
+return 0;
+}
+
+
+
+map<A,B> ordermap;
+A should have mechanism to compare <
+
+the repository has been updated..
+
+checklist.
+
+1. parameter packs individually or as a group ( fold expressions) sum
+2. we can apply constraints on the type of the template because operations
+demand it.
+3. instantiating the template explicitly.
+
+
+why we creating a library?
+
+1. we want the user of library just look at the header and use it and not compile
+it.. user need not know the logic written for the header..
+
+https://github.com/noteonbg/siemens_poc.git
+
+go thru the programs and then try..
+6,7,8
+
+
+---------------------------
+
+code base in c++ and list its feature.
+dont priotize logic building..
+
+-------------------------------------
+
+
+double multilevel<IndexType,ValueType,MemorySpace,Format,SmootherType,SolverType>
+::grid_complexity( void )
+{
+    size_t unknowns = this->num_rows;
+    for(size_t index = 1; index < levels.size(); index++)
+        unknowns += levels[index].A.num_rows;
+    return (double) unknowns / (double) this->num_rows;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

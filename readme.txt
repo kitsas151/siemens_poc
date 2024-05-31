@@ -17,6 +17,33 @@ official view
 https://www.youtube.com/watch?v=2BuJjaGuInI
 CppCon channel youtube
 
+code bases
+you can pick your own ones also based on domain
+
+https://github.com/cusplibrary/cusplibrary/tree/main/cusp/detail
+https://github.com/cusplibrary/cusplibrary/tree/main/examples/Algorithms
+
+https://github.com/scylladb/seastar/tree/master/src/core
+
+https://github.com/NVIDIA/TensorRT-LLM/tree/main/cpp/include/tensorrt_llm
+
+https://github.com/SFML/SFML/tree/master/src/SFML
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

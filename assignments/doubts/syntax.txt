@@ -1,3 +1,5 @@
+1)
+
 template <typename IndexType, typename ValueType, class MemorySpace>
 template <typename MatrixType>
 csr_matrix<IndexType,ValueType,MemorySpace>&
@@ -14,3 +16,6 @@ template<typename Y> temp<X> Classname<X>::operator(const Y &y)
         return *this;
 
 }
+
+
+class Abcd123 ClassName
