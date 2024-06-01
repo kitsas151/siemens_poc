@@ -29,6 +29,8 @@ https://github.com/NVIDIA/TensorRT-LLM/tree/main/cpp/include/tensorrt_llm
 
 https://github.com/SFML/SFML/tree/master/src/SFML
 
+https://gitlab.com/kicad/code/kicad/-/tree/master?ref_type=heads
+
 
 
 
