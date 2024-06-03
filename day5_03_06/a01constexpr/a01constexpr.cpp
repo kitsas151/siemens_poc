@@ -136,7 +136,6 @@ public:
     constexpr std::size_t size() const { return sz; }
 };
  
- 
 constexpr std::size_t count_lower(conststr s)
 {
     std::size_t c{};

@@ -201,6 +201,21 @@ auto with a new expression creates a pointer to the
 
 ---------------------------------------------------------------------------
 
+look at 
+
+look at examples in look at 
+day2_27_05\a01constexpr 
+
+15) create a class called Rectangle with length,breadth and funtions for getting
+area and perimeter using const expressions. look at 
+day2_27_05\a01constexpr folder for syntax..
+
+16) look at the code base and see are they using any examples for constexpr.
+
+17) think of day1 case study Device, think where all you can use constexpr  and justify why...
+
+
+---------------------------------------------------------------------------
 
 
 
@@ -225,14 +240,24 @@ auto with a new expression creates a pointer to the
 
 
 
-----------------------------------------------------
+
+
+
+
+
+
+
+---------------------------------------------------------------
 
 Questions on OCP, LSP, ISP and Dependancy INversion Principle
 
 1. come with your own two examples on OCP, LSP, ISP
 and dependancy injection.
 
-----------------------------------------------------
+-----------------------------------------------------------------------------
+
+
+
 
 
     

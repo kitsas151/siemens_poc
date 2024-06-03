@@ -535,8 +535,69 @@ a08_variadicarguments.cpp in day3_29_05 template folder.
 
 can be used on classes and functions
 
+lvalue and rvalue
+
+have a look at day4_31_05\a13lval2.cpp
+we cannot say
+int i =3;
+4 = i; 
+becuase 4 is a rvalue 
+
+we have a concept called rvalue refernce thru which we can store
+these rvalues. it is indicated by int&&.
+
+we can store rvalue in a normal lvalue reference.
+
+int &x=3; 
+
+in templates..if we need a function whose name is look at.
+in day3_29_05\a02template\a09_referencecollapse.cpp 
+look at implications of a template function which takes & and template && reference 
+understand the perfect forwarding what it does.
+
 --------------------------------------------------------------------
 
+decltype to ensure in case we dont know the data type during templte programming
+ask compiler to deduct by using the decltype.
+
+decltype is used in templates to deduce types at compile time.
+
+look at day3_29_05\a10_decltype.cpp 
+
+
+
+------------------------------------------------------------
+
+in class initializer means the  non static variable can be initalized inside
+the class.
+
+Uniform initialization is a feature introduced in C++11 that allows consistent syntax for 
+initializing variables and objects using braces ({}) to enclose initializer values. 
+It simplifies initialization across various types, including primitive types and aggregates.
+
+Delegating constructor.
+X class has got two constructors, call one constructor from another. so that we can minimize
+logic building look at day4_31_05
+
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------
 The keyword constexpr was introduced in C++11 and improved in C++14.
  it means const expression Like const, it can be applied to variables:
 
@@ -549,6 +610,9 @@ A literal type is one whose layout can be determined at compile time
 Look at a01constexpr.cpp , because documenation will use the words literaltype and trivialtype...
 Look at a03literaltype.cpp
 Look at a02trivial.cpp
+
+
+look at conditions for constexpr in https://en.cppreference.com/w/cpp/language/constexpr
 
 
 
@@ -566,6 +630,10 @@ No Non-Standard-Layout Base Classes: The class should not have base classes that
 In summary, a standard-layout type is memcopy-able and has a layout defined in such a way that it can be 
 consumed by C programs1. If you encounter a type that meets these criteria,
  you’re dealing with a standard-layout class or struct in C++
+
+----------------------------------------------------------------------------------------------------------
+
+
 
 
 consider below points 
@@ -592,7 +660,10 @@ look at examples in day4_31_05
 
     }
 
-    
+    -----------------------------------------------------
+
+
+
 
 
 

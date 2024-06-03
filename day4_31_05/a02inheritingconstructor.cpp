@@ -33,10 +33,10 @@ int main() {
     Person p1; // Default constructor
     p1.printDetails();
 
-    Person p2("Alice", 30); // Constructor with name and age
+    Person p2("X", 30); // Constructor with name and age
     p2.printDetails();
 
-    Person p3("Bob"); // Constructor with name (delegates to the previous constructor)
+    Person p3("Y"); // Constructor with name (delegates to the previous constructor)
     p3.printDetails();
 
     return 0;

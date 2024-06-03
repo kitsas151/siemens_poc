@@ -27,7 +27,7 @@ int main() {
 
 #endif
 
-#if 1
+#if 0
 
 
 #include <iostream>
@@ -95,7 +95,7 @@ int main()
 
 
 // decltype_1.cpp
-// compile with: cl /EHsc decltype_1.cpp
+
 
 #include <iostream>
 #include <string>
@@ -196,7 +196,7 @@ int main() {
 
 #endif
 
-#if 1
+#if 0
 #include <iostream>
 #include <complex>
 #include <vector>

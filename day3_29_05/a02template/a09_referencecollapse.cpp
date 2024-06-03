@@ -20,16 +20,18 @@ int main() {
     int& lvalue_ref = x;
     int&& rvalue_ref = 42;
 
-    //foo(x);         // lvalue reference
-   // foo(lvalue_ref); // lvalue reference
-   foo(rvalue_ref); // lvalue reference
+    foo(x);         // lvalue reference
+   foo(lvalue_ref); // lvalue reference
+  foo(rvalue_ref); // lvalue reference
     foo(42);        // rvalue reference
 }
+
+//stop look at the output..
 
 
 #endif
 
-#if 0
+#if 1
 
 #include <iostream>
 #include <utility>
@@ -43,32 +45,28 @@ void process(int&& value) {
 }
 
 
+
+#if 0
 template <typename T>
 // problem is both l reference and r refernce are calling the same function.
 void forward_example(T&& value) {
     std::cout << "1 \n ";
     process(value);
 }
+#endif
 
-
+#if 0
  // problem of not being able to assing a r_refernece to it
 template <typename T>
 void forward_example(T& value) {
     std::cout << "2 \n ";
     process(value);
 }
+#endif
 
 
-
-
-/*
-void forward_example(T&& value) {
-    process(value);
-}
-
-*/
-
-#if 0
+#if 1
+template<typename T>
 void forward_example(T&& value) {
     process(std::forward<T>(value));
 }
@@ -83,7 +81,7 @@ int main() {
 
 #endif
 
-#if 1
+#if 0
 
 #include <iostream>
 #include <utility>

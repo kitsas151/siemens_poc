@@ -76,6 +76,9 @@ public:
 
 int main() {
     // Using decltype with std::declval
+
+    //observe we are creating a refernce and calling a function and storing the return type of the function
+    //in the variable..
     decltype(std::declval<A>().value()) a; // Declares a variable of the return type of A::value()
     decltype(std::declval<B>().value()) b; // Declares a variable of the return type of B::value()
 
@@ -83,6 +86,114 @@ int main() {
 
     std::cout << "Type of 'a': " << typeid(a).name() << std::endl;
     std::cout << "Type of 'b': " << typeid(b).name() << std::endl;
+
+    return 0;
+}
+
+
+#endif
+
+#if 0
+
+//decltype is used in templates to deduce types at compile time.
+
+#include <iostream>
+#include <type_traits>
+
+// Example input signal type (you can replace this with your actual signal type)
+struct InputSignal {
+
+    InputSignal()=default;
+    InputSignal(const int volt):voltage(volt){}
+    InputSignal f1() { return InputSignal(); }
+
+    double voltage;
+};
+
+// Simulate a logic gate
+template <typename InputType>
+bool SimulateLogicGate(const InputType& input) {
+    // Perform some logic gate simulation (e.g., AND, OR, etc.)
+    // For demonstration purposes, let's just check if the voltage is above a threshold
+    return input.voltage > 2.5;
+}
+
+int main() {
+    // Use std::declval to create a reference to InputSignal without constructing an instance
+     using InputRef = decltype(std::declval<InputSignal>()>);
+
+    // Simulate an input signal (pretend we received this from a sensor)
+    InputRef input;
+    input.voltage = 3.0;
+
+    // Simulate an AND gate using the input signal
+    bool result = SimulateLogicGate(input);
+
+    std::cout << "Input voltage: " << input.voltage << std::endl;
+    std::cout << "AND gate output: " << (result ? "High" : "Low") << std::endl;
+
+    return 0;
+}
+
+
+#endif
+
+#if 0
+
+#include <utility>
+template <class T, class ReturnT, class... ArgsT> class IsCallable
+{
+public:
+   struct BadType {};
+   template <class U>
+   static decltype(std::declval<T>()(std::declval<ArgsT>()...)) Test(int); //C2064. Should be declval<U>
+   template <class U>
+   static BadType Test(...);
+   static constexpr bool value = std::is_convertible<decltype(Test<T>(0)), ReturnT>::value;
+};
+
+int main()
+{
+
+constexpr bool test1 = IsCallable<int(), int>::value;
+static_assert(test1, "PASS1");
+constexpr bool test2 = !IsCallable<int*, int>::value;
+static_assert(test2, "PASS2");
+return 0;
+
+}
+
+#endif
+
+#if 0
+
+#include <iostream>
+#include <utility>
+
+// Example: A simple struct representing a sensor reading
+struct SensorReading {
+    double value;
+};
+
+// A function that simulates processing sensor data
+template <typename T>
+void ProcessSensorData(const T& data) {
+    // Perform some processing (for demonstration, let's just print the value)
+    std::cout << "Processing sensor data: " << data.value << std::endl;
+}
+
+int main() {
+    // Use std::declval to create a reference to SensorReading without constructing an instance
+    using SensorRef = decltype(std::declval<SensorReading>());
+
+    // Create a reference to SensorReading (without actually creating an object)
+    SensorRef sensorDataRef;
+
+    // Simulate sensor data (pretend we received this from a sensor)
+    sensorDataRef.value = 42.5;
+
+    // Process the sensor data
+    ProcessSensorData(sensorDataRef);
 
     return 0;
 }
