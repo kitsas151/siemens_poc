@@ -38,12 +38,18 @@ It’s one of the reasons why brace initialization is preferred.
 
 */
 
-int io{3.3};
+int io(3.3);
+
+float f1 =3.3f;
+float f2 =3.2f;
 
 
+
+
+/*
 Rectangle r1{10, 5};
 Rectangle r2 = {8, 6};
-
+*/
 
 
 

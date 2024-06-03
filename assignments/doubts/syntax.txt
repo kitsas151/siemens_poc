@@ -18,4 +18,5 @@ template<typename Y> temp<X> Classname<X>::operator(const Y &y)
 }
 
 
-class Abcd123 ClassName
+parameter pack with decltype.
+decltype with operator overloading.

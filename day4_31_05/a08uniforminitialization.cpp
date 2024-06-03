@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 //Uniform initialization is a feature introduced in C++11 that allows consistent syntax for 
 //initializing variables and objects using braces ({}) to enclose initializer values. 
@@ -10,6 +10,7 @@ class A {
 public:
     A(int x, int y, int z) : arr{x, y, z} {}// look array has been intialized.
 };
+
 
 namespace another
 {
@@ -25,13 +26,14 @@ A f(int a, int b) {
 }
 
 
+
 void f(A x) {
     // Use x
 }
 
 void check() {
     f({1, 2});
-    return 0;
+    return ;
 }
 
 

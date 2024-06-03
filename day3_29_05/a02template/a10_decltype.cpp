@@ -35,7 +35,7 @@ int main() {
 
 // Function template to multiply two values
 template <class A, class B>
-void MultiplyAB(A a, B b, decltype(a * b)& output) {
+void MultiplyAB(A a, B b, decltype(a*b)& output) {
     output = a * b;
 }
 
@@ -78,6 +78,11 @@ auto findMin(A a, B b) -> decltype(a < b ? a : b)
 // driver function to test various inference
 int main()
 {
+
+
+    auto x = findMin(4,3.3);
+    
+
 	// This call returns 3.44 of double type
 	cout << findMin(4, 3.44) << endl;
 

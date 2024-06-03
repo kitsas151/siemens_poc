@@ -1,0 +1,273 @@
+templates.
+1.generic code
+2. specialization
+3. instantiation
+4. you can have a template that can take n number of arguments.
+5. can we put some constraints on the template types.
+
+
+treat different things in a standardized way... == means we need to use interfaces.
+
+freak point
+
+1. abstract class  --is a base class, construcors, non static members
+2. interface  --not a class --no member variales, no constructor
+
+if we cannot create an object of the abstract class.
+who will call the constructors and non static functions of the abstract class.
+derived class object
+
+decltype.
+
+1. if we are doing templae programming and we dont know the type of the expression.
+then we can use decltype to tell the compiler hey you deduce the type..
+
+
+variadic template..
+
+1. you have n number of arguments...
+2. once you pick each argument then you can use the decltype..
+
+
+auto is to deduce the type look at the usage. prefer to use with decltype.
+auto, I dont care for the type.. using with STL
+
+
+
+common project scenario
+
+1. I am doing X , X needs Y and I dont know Y.
+best way to forget X is doing phd on Y
+
+decltype..
+forward..
+
+lreference
+rreference --c++  11
+
+lvalue
+rvalue.
+
+int i =3;
+4=i;
+4 is rvalue
+
+
+
+context.
+1. templates decltype.  --X
+
+Y
+ int &&i =3;
+r reference..
+
+
+template function whose input argument is reference.
+
+template<typename x>
+void f1(X &&y)
+
+
+int k =4;
+int &m =k;
+f1(m);
+f1(3);
+
+
+
+
+decltype prove you need its usage.
+
+
+1. what is lrefrence and what is rrefernce.
+2. we have functions overloaded to take lreference or rreference.
+3. we have a templatized function whose input argument can be lreference or rreference.
+4. then we have  problem inside this templatized function.. it is not able to differentiate.
+5. how to differentiate.. ok think of using std::forward, what happens.
+6. ok because of 5 lreference is lreference and rreference is rrefernce.
+
+
+take a break till 11.20AM..
+
+
+const int &a=3;
+
+	
+
+20 minutes  -- 11.45AM
+
+0. day3\a01template folder...a09reference to a16inheritance programs see are you able to understand
+1. in calculator use decltype and see what it does for you.
+2. copy paste 3 examples on decltype from google and see whether it was worth using decltype or not.
+3. code base look where any decltype is used or not.
+
+--------------------------------
+
+inheritance...
+
+0. by creating a devied class object
+1. we want to call the base class , function derived class function
+2. inside the derived class you want to call the base class function.
+you need some differentiating factor, one simple way is using this.
+
+----------------------
+
+if we want to call the
+
+1. base class parametrized constructor
+2. during derived class object creation
+3. we need to do it explicitly by calling the base class parametrized constructor in the derived class constructor.
+
+--------------------------------------------------------------
+
+Delegating constructor.
+
+1. we have a class called X
+2. in class X we have many constructors, because project needs it.. constructor is overloaded.
+3. we want to call one constructor from the other constructor on the same object.
+
+
+class A
+{
+A():A(0) {   }
+A(int i)  {  }
+
+}
+
+A obj;
+
+
+
+class Rct
+Rct() call deleating constructor  {}
+Rct(int l) calling constructor  {}
+
+
+Rct(int l,int b)   -- delegating constructor
+{	
+
+write some logic for taking l, b ..
+
+}
+
+
+unfortunate fate today is copy paste features from one language to another and change its name..
+
+override 
+we use this in the derived class.
+to check the function we have defined is overridden or not
+
+override.
+1. used in the derived class
+2. if the function is not present in the base class, it will show a compilation error.
+
+
+final
+1. with respect to class, it means it can no longer be a base class.
+2. with respect to function, function cannot be overridden.
+
+
+
+if we tell inheritance, telling derived class object cannot access base class functions is a  sin.
+
+
+
+Nested classes.
+1. prove its need.
+X cannot exist until Y exists..
+that means nest X under Y.
+
+X=iterator, Cursor,Thread,Pair
+Y=container,Window,Process,Map
+
+
+
+vector<string>::iterator it;
+it is an object of the class iterator which is nested under Vector class.
+
+uniformintializer.
+1 we want to have a consistant way of initialzing different category of variables,, int, class type, array.
+
+class ? classname
+
+?
+1. Microsoft specific documentation mentions
+2. c++ compiler which is some embedded some specific implementation..
+
+gnu g++ implementation..
+
+
+
+
+
+template<typename T, typename U> 
+auto add(T t, U u) -> decltype(t + u) 
+
+1. add is the functionname.
+2. its input argument is of type T and U, T and U are different data types.
+the logic we are doing inside is adding two different data types..
+int +float
+double +float
+3.we are definer of add function.
+4. somebody else could be the caller of the add function.
+5. this caller will have no clue what auto means because usually he will not see the body of the function.
+6. ->decltype(t+u)
+
+we are telling the caller hey look
+you know your T
+you know your U
+return type of this function will be result of t+u
+
+
+double x= add(2,3.3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// return type depends on template parameters // return type can be deduced since C++14 { return t + u; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
