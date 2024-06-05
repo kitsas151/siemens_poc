@@ -20,3 +20,5 @@ template<typename Y> temp<X> Classname<X>::operator(const Y &y)
 
 parameter pack with decltype.
 decltype with operator overloading.
+
+constexpr const int  i=3;//need for adding a cosnt constexpr.

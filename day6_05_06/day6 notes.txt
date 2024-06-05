@@ -1,0 +1,133 @@
+last class summary
+
+1. decltype usage only we are not able to infer the data type.
+2. meaning of perfect forwarding ie let lreference will be lreferene only and rreference be rreference only.
+3. style of coding, delegating constructor.....
+4. hope calculator program works... 
+
+char *s =  "hello" is a immutable string.
+char *y =s;
+*y='y';
+printf("%s",s);
+we will get a runtime error
+
+whole intent of constexpr how do you make things immutable.
+
+Circle
+{
+
+public:
+	Circle(const int i);
+	int getRadius(); const
+
+private:
+	int r;
+
+
+};
+
+std::string is it mutable string or a immutable string.
+
+String s ="Hello"
+s="fine";
+Hello got changed to Fine.
+
+i want to use constexpr.
+
+1. variable
+2. function
+3. inside the class
+
+functions..
+1.function which we call
+2.functions which system calls.( focus on this if we tell performance)
+
+performance
+1. talking adjectives is of no use.
+2. thinking only numbers matter .. no use.
+3. after collecting the numbers, context..
+
+
+
+
+constexpr.
+1 resolve at compile time.
+2. how to resolve at compiletime, things should be immutable.(hard part to identify)
+3. apply constexpr to variables or functions.
+
+
+05_03_06\a01constexpr folder
+
+a00constexpr.cpp
+a01constexpr.cpp
+
+for some functions try to measure how much time difference
+do you get if you use constexpr and if you dont use constexpr.
+
+1. function
+2. function inside a class
+
+if the class itself should be immutable.?
+any object of the class you create, it state is fixed.
+1.set the state at time of creating of the object
+2.remaining funtions const.
+you can think of using constexpr.
+
+exception specification all about.
+
+1.function declaration, function definition
+2. function definition not visible to the caller of the function.. he can see
+only function declaration.
+3. how do you I communicate my function will throw an exception or not throw an exception
+4. important part of exception handling is rationality part..
+do i know which line in my function can cause exception or not cause an exception.
+even i know the problem, should i solve it. by catching it or not..
+function of context
+
+
+license.
+1. x will issue the license. ( RTO)
+who is creating this generalilzed attribute
+
+
+2. Y will take the license after knowing its benefit and when the benefit comes.
+(we)  
+[[gnu::always_inline, gnu::const, gnu::hot, nodiscard]]
+int f(); 
+
+
+3. Z will give the benefit under a circumstance
+
+Y can never tell i took the license accidentally
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

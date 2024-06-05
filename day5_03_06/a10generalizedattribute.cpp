@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 // Apply an attribute to a variable
 int x [[foo]];

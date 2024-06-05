@@ -5,6 +5,7 @@
 
 struct MyType {
     operator int() const {
+        std::cout << "hi";
         return 42; // Implicit conversion to int
     }
 };
@@ -23,7 +24,7 @@ int main() {
 
 
 
-#if 0
+#if 1
 
 
 /*
@@ -42,7 +43,7 @@ struct MyType {
 int main() {
     MyType obj;
     // int value = obj; // Error: Cannot implicitly convert
-    int value = static_cast<int>(obj); // Explicit conversion
+   int value = static_cast<int>(obj); // Explicit conversion
     // value is still 42
     return 0;
 }
@@ -50,7 +51,8 @@ int main() {
 
 #endif
 
-#if 1
+#if 0
+
 
 int main()
 {

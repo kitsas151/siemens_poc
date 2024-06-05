@@ -4,7 +4,7 @@
 #include <vector>
 
 int main() {
-    std::vector<int> numbers = {1, 2, 3, 4, 5};
+    std::vector<int> numbers = {1, 2, 3, 4, 5}; 
 
     // Iterate over each element in the vector
     for (const auto& num : numbers)  //observe reference being used...

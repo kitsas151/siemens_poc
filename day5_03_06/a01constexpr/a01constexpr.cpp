@@ -7,9 +7,9 @@
 
 
 
-#if 1
+#if 0
 
-constexpr 
+ constexpr
 int square(int x) {
     for(int i=0; i<262144; i++);
     return x * x;
@@ -21,10 +21,11 @@ int main() {
     {
 
     auto start = std::chrono::high_resolution_clock::now();    
-    constexpr
-     int value = 5;
+    constexpr   int value = 5;
+    //const int value=5
     constexpr
      int result = square(value); // Evaluated at compile time
+     static_assert(result==25);
     auto end = std::chrono::high_resolution_clock::now();
     
     // Calculate the duration in milliseconds
@@ -32,8 +33,8 @@ int main() {
     std::cout << "\n " << duration.count() << "milli seconds taken";
     }
   
-    #if 0
-    static_assert(result==25);
+    #if 1
+    
     std::cout << "Square of " << value << " is " << result << std::endl;
 
     #endif
@@ -74,7 +75,12 @@ public:
 
     constexpr double getArea() const {
         return pi * radius * radius;
+        //return radius;
     }
+
+    void setradius(int r) { radius =r;}
+
+    
 
 private:
     static constexpr double pi = 3.14159265358979323846;
@@ -84,7 +90,16 @@ private:
 int main() {
     constexpr Circle c(5.0); // Compile-time instantiation of Circle object
     constexpr double area = c.getArea();
-    std::cout << "Area of circle with radius " << c.getRadius() << " is " << area << std::endl;
+    //c.setradius(44);
+
+    Circle c1(6.0);
+    c1.setradius(4);
+    c1.getArea();
+
+
+    
+
+    
 
     return 0;
 }
@@ -114,7 +129,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 
 #include <cstddef>
 #include <iostream>
