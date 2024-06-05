@@ -1,92 +1,13 @@
-#if 0
+
 
 // C++14
 #include <iostream>
 
-/*
-
-for basic multilingual plane (BMP), use the escape sequence \\u followed by the hexadecimal 
-representation of the character code (e.g., '\\u03C0' represents the Greek alphabet letter pi).
-
-For characters outside the BMP, use \\U followed by the hexadecimal representation of the
- character code (e.g., '\\U0001F600' represents a grinning face).
-
-*/
-
-
-int main() {
-    std::cout << "Unicode: " << '\\u03C0' << '\\n';
-    std::cout << "Beyond BMP: " << '\\U0001F600' << '\\n';
-    std::cout << "UTF-8: " << u8"\\u03BB" << '\\n';
-    return 0;
-}
 
 
 
 
-#endif
-
-#if 0
-
-
-// C++
-#include <iostream>
-int main() {
-    char basicChar = 'a';
-    wchar_t wideChar = L'\\u00E9';
-    char32_t utf8Char = U'\\u03A9';
-    char32_t utf16Char = U'\\U0001F60A';
-    char32_t utf32Char = U'\\U0001F609';
-
-    std::cout << "Basic character: " << basicChar << std::endl;
-    std::wcout << "Wide character: " << wideChar << std::endl;
-    std::cout << "UTF-8 character: " << utf8Char << std::endl;
-    std::wcout << "UTF-16 character: " << utf16Char << std::endl;
-    std::wcout << "UTF-32 character: " << utf32Char << std::endl;
-
-    return 0;
-}
-
-
-#endif
-
-#if 0
-
-// C++ Program to Handle Unicode Strings
-
-#include <codecvt> //for wstring_convert and codecvt_utf8 if using C++17 or earlier
-#include <iostream>
-#include <locale>
-#include <string>
-using namespace std;
-
-int main()
-{
-
-    // Assuming the source file is saved in UTF-8 encoding
-    string utf8_string
-        = "Привет, мир!"; // Hello, world! in Russian
-
-    // Convert UTF-8 string to wide string
-    wstring_convert<codecvt_utf8<wchar_t>, wchar_t>
-        converter;
-    wstring wide_string = converter.from_bytes(utf8_string);
-
-    // Print wide string
-    wcout.imbue(
-        locale("")); // Ensure the wide output stream can
-                     // handle the locale properly.
-    wcout << L"Wide string: " << wide_string
-          << " that means Hello, World! in Russian Language"
-          << endl;
-
-    return 0;
-}
-
-
-#endif
-
-#if 0
+#if 1
 
 #include <iostream>
 
@@ -161,7 +82,7 @@ The nullptr literal represents a null pointer.
 
 
 
-#if 1
+#if 0
 
 #include <iostream>
 #include <string>

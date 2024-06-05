@@ -1,6 +1,6 @@
 #include <iostream>
 
-#if 1
+#if 0
 
 template <typename T1, typename T2>
 auto product(T1 a, T2 b) -> decltype(a * b) {
@@ -23,8 +23,8 @@ int main() {
 
 int main() {
     std::vector<int> vec = {1, 2, 3, 4, 5};
-    for (auto elem : vec) {
-        std::cout << elem << " ";
+    for (auto &elem : vec) {
+        std::cout << elem << " "  <<typeid(elem).name();
     }
     std::cout << std::endl;
     return 0;
@@ -35,31 +35,11 @@ int main() {
 
 
 #if 0
-#include <utility>
-
-/*
-Problem 4: Complex Type with decltype
-Write a function that takes a pair of integers and returns their sum. Use decltype to deduce the return type. Also, use auto to declare the variables inside the function.
-*/
-
-auto sum_pair(std::pair<int, int> p) -> decltype(p.first + p.second) {
-    return p.first + p.second;
-}
-
-int main() {
-    std::pair<int, int> p = {10, 20};
-    std::cout << "Sum: " << sum_pair(p) << std::endl;
-    return 0;
-}
-
-#endif
-
-#if 0
 #include <iostream>
 
 /*
 
-Problem 5: Using auto with Lambda Expressions
+ Using auto with Lambda Expressions
 Write a lambda expression that captures two
  variables by reference, modifies them, and
   prints their values. Use auto to declare the
@@ -83,7 +63,7 @@ int main() {
 #endif
 
 
-#if 0
+#if 1
 
 /*
 
@@ -102,11 +82,11 @@ int add(int a, int b) {
 
 int main() {
     auto funcPtr = add;
-    std::cout << "Sum: " << funcPtr(10, 20) << std::endl;
+    std::cout << "Sum: " << funcPtr(1, 2) << std::endl;
 
     // Using decltype to declare another function pointer
-    decltype(add) funcPtr2 = add;
-    std::cout << "Sum: " << funcPtr2(30, 40) << std::endl;
+    decltype(add) *funcPtr2 = add;
+    std::cout << "Sum: " << funcPtr2(3, 4) << std::endl;
 
     return 0;
 }

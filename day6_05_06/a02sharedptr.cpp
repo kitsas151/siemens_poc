@@ -36,3 +36,15 @@ int main() {
     std::cout  << "main function at work";
        return 0;
 }
+
+/*
+
+Shared Ownership:
+Use std::shared_ptr when you want shared ownership of a dynamically allocated resource.
+Multiple shared_ptr instances can point to the same object, and the resource is automatically cleaned
+ up when the last shared_ptr goes out of scope1.
+Member Objects:
+You can use std::shared_ptr to point to member objects while owning the object they belong to.
+This is useful when you want to share ownership of a part of an object2.
+
+*/

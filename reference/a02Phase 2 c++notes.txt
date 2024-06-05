@@ -581,21 +581,10 @@ logic building look at day4_31_05
 
 -----------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+auto.
+1. use it only if you dont know the data type.
+2. remember it will not deduce a refrence automatically.
+3. remember it will not do conversion.
 
 ----------------------------------
 The keyword constexpr was introduced in C++11 and improved in C++14.
@@ -633,9 +622,6 @@ consumed by C programs1. If you encounter a type that meets these criteria,
 
 ----------------------------------------------------------------------------------------------------------
 
-
-
-
 consider below points 
 Use constexpr:
 
@@ -643,24 +629,17 @@ For compile-time constants and constant expressions.
 To optimize performance by moving computations to compile time.
 In template metaprogramming for compile-time checks and computations.
 For constant initialization of static data members.
+
 Avoid constexpr:
 
 For runtime-dependent computations.
-For complex or time-consuming compile-time computations.
 For objects requiring mutable state.
 For types that do not meet the literal type requirements.
 
 -------------------------------------------------
-look at examples in day4_31_05
 
-	In-class Initializers for Non-static Data Members 
-    class a
-    {
-        int i =0; //this is called as in class initalizer.
 
-    }
 
-    -----------------------------------------------------
 
 
 

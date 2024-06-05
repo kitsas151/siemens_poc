@@ -1,9 +1,24 @@
 #if 1
 #include <iostream>
 
+
+double square(double d) { return d*d; }
+static double s2 = square(2);    // old-style: dynamic initialization
+
+constexpr double ntimes(double d, int n)   // assume 0 <= n
+{
+        double m = 1;
+        while (n--) m *= d;
+        return m;
+}
+
+constexpr double s3 {ntimes(2, 3)};  // modern-style: compile-time initializatio
+
 constexpr int product(int x, int y) {
     return x * y;
 }
+
+
 
 int main() {
     constexpr int result = product(10, 20);
@@ -32,7 +47,7 @@ constexpr double ConvertDegreeToRadian(const double& dDegree) {
 }
 
 int main() {
-    auto dAngleInRadian = ConvertDegreeToRadian(90.0);
+    double dAngleInRadian = ConvertDegreeToRadian(90.0);
     std::cout << "Angle in radian: " << dAngleInRadian; // Output: 1.5708
     return 0;
 }

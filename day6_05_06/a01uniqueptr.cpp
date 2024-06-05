@@ -22,6 +22,7 @@ class A
     }
 
 }
+#endif
 
 
 #if 0
@@ -93,3 +94,30 @@ int main() {
 }
 
 #endif
+
+/*
+
+
+Exclusive Ownership:
+std::unique_ptr provides exclusive ownership of a dynamically allocated resource.
+ Only one unique_ptr can point to a resource at a time.
+This ensures that the resource is automatically cleaned up when the unique_ptr goes out of scope,
+ preventing memory leaks1.
+
+No Reference Counting Overhead:
+Unlike std::shared_ptr, which maintains reference counts, std::unique_ptr has less overhead.
+ It doesn’t count references.
+
+This makes it more efficient in terms of memory and performance2.
+Move Semantics:
+std::unique_ptr is movable but not copyable. It supports move semantics, 
+allowing efficient transfer of ownership between objects.
+
+When using unique_ptr as a member variable, you might need to 
+write move constructors or use std::move.
+
+Passing a unique_ptr by value also requires using std::move2.
+Clear Ownership Model:
+When you use std::unique_ptr, it should completely own the managed object. It’s not shared with other classes.
+
+*/

@@ -2,14 +2,7 @@
 #include <type_traits>
 
 #if 1
-auto f()  -> int
-{
-    return 2;
-}
 
-auto add(int a, int b) -> int {
-    return a + b;
-}
 
 
 //delltype(auto) multiply(T1 a, T2 b) 
@@ -33,12 +26,12 @@ auto f3() -> int
 void anotherscnearios()
 {
 auto x = 5; // OK: x has type int
-int &y =x;
+int &y = x;
 const auto *v = &x, u = 6; // OK: v has type const int*, u has type const int
 std::cout << typeid(u).name() << "\n";
-auto k =y;
+auto k =y; //auto does not deduce reference
 k =44;
-std::cout << "value of k is " << k;
+std::cout << "value of x is " << x;
 static auto z = 0.0; // OK: z has type double
 auto (*fp)()  = f3; // OK: the “auto” in the trailing return type
                           // can be deduced from f
@@ -66,14 +59,14 @@ int main()
 
 #endif
 
-#if 0
+#if 1
 
 int main()
 {
         int k=3;
         const int &l =k;
         auto  i = l;
-        //static_assert(std::is_same_v<decltype(i),const int &>);
+        static_assert(std::is_same_v<decltype(i),const int &>);
         std::cout << "is it working";
 
 }

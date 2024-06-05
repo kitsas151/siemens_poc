@@ -33,8 +33,7 @@ void f2() {
 }
 
 
-
-}
+}//end of namespace poc
 
 #include <atomic>
 

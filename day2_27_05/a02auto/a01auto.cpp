@@ -2,25 +2,16 @@
 #include <type_traits>
 
 #if 1
-auto f()  -> int
-{
-    return 2;
-}
-
-auto add(int a, int b) -> int {
-    return a + b;
-}
-
 
 //delltype(auto) multiply(T1 a, T2 b) 
 template <typename T1, typename T2>
-auto multiply(T1 a, T2 b) //-> decltype(a * b) 
+auto multiply(T1 a, T2 b) -> decltype(a * b) 
 {
-    return &&(a * b);
+    return (a * b);
 }
 
 
-auto g() { return 0.0; };
+auto g() { return 0.0; }; //silly code to prove that auto will deduce to an double
 auto h();// ok return type will be deduced
 //when defined
 
@@ -36,7 +27,7 @@ auto x = 5; // OK: x has type int
 const auto *v = &x, u = 6; // OK: v has type const int*, u has type const int
 std::cout << typeid(v).name() << "\n";
 static auto y = 0.0; // OK: y has type double
-auto (*fp)()  = f3; // OK: the “auto” in the trailing return type
+auto (*fp)()   = f3; // OK: the “auto” in the trailing return type
                           // can be deduced from f
 }
 
@@ -46,8 +37,7 @@ auto (*fp)()  = f3; // OK: the “auto” in the trailing return type
 
 int main()
 {
-    auto x =3;
-    std::cout << "Sum: " << add(2, 3) << std::endl;
+    anotherscnearios();
     std::cout << "Product: " << multiply(3, 4.5) << std::endl;
     return 0;
 
