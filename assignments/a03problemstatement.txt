@@ -204,15 +204,57 @@ auto with a new expression creates a pointer to the
 look at 
 
 look at examples in look at 
-day2_27_05\a01constexpr 
+day5_03_06\a01constexpr for syntax 
 
 15) create a class called Rectangle with length,breadth and funtions for getting
 area and perimeter using const expressions. look at 
-day2_27_05\a01constexpr folder for syntax..
 
 16) look at the code base and see are they using any examples for constexpr.
 
-17) think of day1 case study Device, think where all you can use constexpr  and justify why...
+17) try to create a vector with device objects where device means int deviceid, bool status and std::string devicename.
+and iterate by auto and iterate by using the iterator and meaasure how much time it takes.
+
+19) create a program which does the following which has deviceobject which contains deviceid, bool status
+and devicename. have a constructor which takes all the 3 arguments and intializes them.
+
+have a menu as follows.
+X menu
+1. create device object.
+0. exist
+
+when 0 is selected we should come out of main.
+when 1 is selected show a submenu as follows.
+
+Y menu
+1. create device with new.
+2. create device with unique_ptr
+3. create device with shared_ptr.
+0. return
+
+when user selects 0. ensure you get back to the X Menu.
+when 1 is selected ensure you allocate memory by using new.
+when 2 is selected ensure you allocate memory by unique_ptr
+when 3 is selected ensure you allocate memory by using shared_ptr.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---------------------------------------------------------------------------

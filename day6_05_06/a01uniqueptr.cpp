@@ -1,30 +1,6 @@
 #include <iostream>
 #include <memory> // Include the <memory> header for unique_ptr
 
-#if 1
-class A
-{
-    private:
-
-        std::unique_ptr<int> i;
-
-    
-    public:
-    A()
-    {   
-        i = std::make_unique(int);
-
-    }
-
-    ~A()
-    {
-
-    }
-
-}
-#endif
-
-
 #if 0
 struct B
 {
@@ -47,7 +23,8 @@ int main()
 {
     //we have dynamically allocated memory on heap
     {
-    std::unique_ptr<D> up(new D());
+    //std::unique_ptr<B> up(new B());
+    std::unique_ptr<B> up =std::make_unique<B>();
     up->bar();
 }
 std::cout <<"main function";
@@ -92,6 +69,59 @@ int main() {
     // The object is automatically deleted when ptrObj goes out of scope
     return 0;
 }
+
+#endif
+
+#if 1
+
+#include <iostream>
+#include <memory>
+
+// Example EDA component (simplified)
+struct EDAComponent {
+    int id;
+    // Other relevant data members...
+};
+
+class CircuitNetlist {
+private:
+    std::unique_ptr<EDAComponent[]> components_; // Array of components
+    size_t numComponents_;
+
+public:
+    explicit CircuitNetlist(size_t numComponents) : numComponents_(numComponents) {
+        components_ = std::make_unique<EDAComponent[]>(numComponents_);
+        // Initialize components (e.g., set IDs, load data from files, etc.)
+        for (size_t i = 0; i < numComponents_; ++i) {
+            components_[i].id = static_cast<int>(i);
+            // Initialize other data...
+        }
+    }
+
+    // Other methods for querying and manipulating the netlist...
+
+    void printComponentInfo(size_t index) const {
+        if (index < numComponents_) {
+            std::cout << "Component ID: " << components_[index].id << std::endl;
+            // Print other relevant info...
+        } else {
+            std::cout << "Invalid component index." << std::endl;
+        }
+    }
+};
+
+int main() {
+    // Create a netlist with 5 components
+    CircuitNetlist netlist(5);
+
+    // Access component information
+    netlist.printComponentInfo(2); // Print info for component at index 2
+
+    // No need to manually delete components; unique_ptr handles it automatically
+
+    return 0;
+}
+
 
 #endif
 

@@ -18,7 +18,8 @@ void f1(std::shared_ptr<MyClass> ptr2)
 
     ptr2->value=44;
     std::cout << "Value via ptr2: " << ptr2->value << std::endl;
-    
+      //if you want to detach go ahead
+      ptr2.reset(); // ptr no longer points to the the object
 
 }
 
@@ -48,3 +49,67 @@ You can use std::shared_ptr to point to member objects while owning the object t
 This is useful when you want to share ownership of a part of an object2.
 
 */
+
+#if 0
+
+#include <iostream>
+#include <memory>
+#include <unordered_map>
+
+// Example EDA component (simplified)
+struct EDAComponent {
+    std::string id;
+    std::string type;
+    // Other relevant data members...
+};
+
+class CircuitDesigner {
+private:
+    std::string designerId;
+    std::string designerName;
+    std::unordered_map<std::string, std::shared_ptr<EDAComponent>> circuitComponents;
+
+public:
+    CircuitDesigner(const std::string& id, const std::string& name)
+        : designerId(id), designerName(name) {}
+
+    void addComponentToCircuit(const std::shared_ptr<EDAComponent>& component) {
+        circuitComponents[component->id] = component;
+    }
+
+    void printCircuit() const {
+        std::cout << "Circuit for Designer " << designerName << " (ID: " << designerId << "):\n";
+        for (const auto& entry : circuitComponents) {
+            const auto& component = entry.second;
+            std::cout << "  Component ID: " << component->id << ", Type: " << component->type << "\n";
+            // Print other relevant info...
+        }
+    }
+};
+
+int main() {
+    // Create shared_ptr for a NAND gate
+    auto nandGate = std::make_shared<EDAComponent>();
+    nandGate->id = "NAND123";
+    nandGate->type = "NAND";
+    // Initialize other properties...
+
+    // Create circuit designers
+    CircuitDesigner designerPerson1("D001", "Satish");
+    CircuitDesigner designerPerson2("D002", "Anu");
+
+    
+    designerPerson1.addComponentToCircuit(nandGate);
+
+    // Add the same NAND gate to Bob's circuit
+    designerPerson2.addComponentToCircuit(nandGate);
+
+    // Print circuit details
+    designerPerson1.printCircuit();
+    designerPerson2.printCircuit();
+
+    return 0;
+}
+
+
+#endif

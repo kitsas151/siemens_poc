@@ -39,6 +39,17 @@ int main() {
         std::cout << "Object has been deleted." << std::endl;
     }
 
+    /*
+    The std::weak_ptr<T>::lock() method in C++ creates a new std::shared_ptr that shares 
+    ownership of the managed object. 
+
+If the std::weak_ptr is empty (i.e., there is no managed object), the returned std::shared_ptr is also empty.
+Otherwise, it constructs a std::shared_ptr pointing to the same object as the std::weak_ptr.
+In other words, lock() provides a safe way to access the resource if it’s still valid,
+ returning an empty std::shared_ptr if the resource has been deleted or is no longer valid
+    
+    */
+
     // Release the shared_ptr (object will be destroyed if no other shared_ptrs hold it)
     sharedPtr.reset();
 
