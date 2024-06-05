@@ -1,7 +1,7 @@
 #include <iostream>
 #include <type_traits>
 
-#if 0
+#if 1
 auto f()  -> int
 {
     return 2;
@@ -29,13 +29,18 @@ auto f3() -> int
     return 4;
 }
 
+
 void anotherscnearios()
 {
 auto x = 5; // OK: x has type int
+int &y =x;
 const auto *v = &x, u = 6; // OK: v has type const int*, u has type const int
-std::cout << typeid(v).name() << "\n";
-static auto y = 0.0; // OK: y has type double
-auto (*fp)() ->auto = f3; // OK: the “auto” in the trailing return type
+std::cout << typeid(u).name() << "\n";
+auto k =y;
+k =44;
+std::cout << "value of k is " << k;
+static auto z = 0.0; // OK: z has type double
+auto (*fp)()  = f3; // OK: the “auto” in the trailing return type
                           // can be deduced from f
 }
 
@@ -45,9 +50,13 @@ auto (*fp)() ->auto = f3; // OK: the “auto” in the trailing return type
 
 int main()
 {
+
+    anotherscnearios();
+    /*
     auto x =3;
     std::cout << "Sum: " << add(2, 3) << std::endl;
     std::cout << "Product: " << multiply(3, 4.5) << std::endl;
+    */
     return 0;
 
 }
@@ -57,14 +66,13 @@ int main()
 
 #endif
 
-#if 1
+#if 0
 
 int main()
 {
         int k=3;
         const int &l =k;
         auto  i = l;
-        static_assert(std::is_same_v<decltype(i),const int &>);
         //static_assert(std::is_same_v<decltype(i),const int &>);
         std::cout << "is it working";
 

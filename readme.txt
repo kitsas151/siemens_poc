@@ -7,7 +7,8 @@ https://learn.microsoft.com/en-us/cpp/cpp/cpp-language-reference?view=msvc-170
 coding styles
 
 suggestions 
-https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md
+https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines 
+
 
 style guide for c++
 https://google.github.io/styleguide/cppguide.html

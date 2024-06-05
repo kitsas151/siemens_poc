@@ -1,7 +1,7 @@
 #include <iostream>
 #include <type_traits>
 
-#if 0
+#if 1
 auto f()  -> int
 {
     return 2;
@@ -14,8 +14,9 @@ auto add(int a, int b) -> int {
 
 //delltype(auto) multiply(T1 a, T2 b) 
 template <typename T1, typename T2>
-auto multiply(T1 a, T2 b) -> decltype(a * b) {
-    return a * b;
+auto multiply(T1 a, T2 b) //-> decltype(a * b) 
+{
+    return &&(a * b);
 }
 
 
@@ -35,7 +36,7 @@ auto x = 5; // OK: x has type int
 const auto *v = &x, u = 6; // OK: v has type const int*, u has type const int
 std::cout << typeid(v).name() << "\n";
 static auto y = 0.0; // OK: y has type double
-auto (*fp)() ->auto = f3; // OK: the “auto” in the trailing return type
+auto (*fp)()  = f3; // OK: the “auto” in the trailing return type
                           // can be deduced from f
 }
 
@@ -57,15 +58,15 @@ int main()
 
 #endif
 
-#if 1
+#if 0
 
 int main()
 {
         int k=3;
         const int &l =k;
         auto  i = l;
-        static_assert(std::is_same_v<decltype(i),const int &>);
         //static_assert(std::is_same_v<decltype(i),const int &>);
+        static_assert(std::is_same_v<decltype(i),const int &>);
         std::cout << "is it working";
 
 }
@@ -79,6 +80,7 @@ int main()
 auto f() -> int {
     return 42;
 }
+
 
 // Pointer to function declaration and initialization
 auto (*fp)() -> auto = f;
@@ -177,7 +179,7 @@ int main( )
     auto myAuto = countRef;// reference not deduced
     myAuto =23; // 
     std::cout <<  count;
-    auto &temp = countRef;
+    auto temp = countRef;
     temp =23;
     std::cout << "count  " << count  << "\n";
 
@@ -188,13 +190,9 @@ int main( )
     auto valcopy =i;
     ptrcopy =&i;    
     valcopy=45;
+    std::cout << "\n " << i;
 
-
-
-
-
-
-    
+  
 
 #if 0
     countRef = 11;

@@ -197,9 +197,6 @@ class ? classname
 gnu g++ implementation..
 
 
-
-
-
 template<typename T, typename U> 
 auto add(T t, U u) -> decltype(t + u) 
 
@@ -218,8 +215,9 @@ you know your T
 you know your U
 return type of this function will be result of t+u
 
-
 double x= add(2,3.3);
+
+
 
 
 
