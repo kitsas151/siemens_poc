@@ -1,4 +1,4 @@
-#if 1
+#if 0
 
 #include <iostream>
 #include <mutex>
@@ -13,7 +13,15 @@ Commonly used for basic scenarios where you need to protect a critical section.
 */
 
 void foo() {
+
+    
     std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
+    
+
+    // lock is an object of lock_guard  and we are pasing mutex object in its constructor
+    //because lock_guard 
+
+
     // Critical section: safe access to shared resources
     std::cout << "Inside foo()" << std::endl;
 }
@@ -26,9 +34,11 @@ int main() {
 
 
 
+
+
 #endif
 
-#if 0
+#if 1
 
 //Allows manual locking and unlocking of the associated mutex.
 

@@ -1,0 +1,232 @@
+good performance in c++
+
+0. good function design and variable design
+1. prove that we are not making unnecessary copies, unnecessary memory allocations.
+2. get the compiler to do the job as much as possible.
+2.1 constexpr usage.. provided we understand immutability in our code.
+2.2 how to suggest compiler hey optimize my code.. compiler options..  generalized attributes
+2.3 const usage.
+
+crazy friction..
+1. some people who use c++ want to drag them selves to use c++ just like C.
+2. some people who want to use c++ like c++
+
+since dinosaurs one programming one thing has never come fast.. IO.
+
+for(int &i  : v)
+{
+	accumulated all the data in stdringview //functions are not io functions
+}
+cout << ;  //io function
+
+
+
+Usage point of view.
+1. if you seeing a class X, X class is going to used by us frequently and class X does not belong to us
+then starting point is opening official documentation and reading about the class before we use.
+
+X =
+string.  Thread, uniquepointer, Mutex , Sempahore
+
+
+•	Generalized Attributes 
+[	] think of symbolism , annotation -- license, passport, 
+
+X is a generalized attribute.
+1. who created it.
+2. what benefit do I get and when.
+3. then start using ...
+
+smart pointers.
+1.allocating memory and deallocating memory on the heap , if done by programmer is messy. so to avoid this
+we have smart pointers.
+
+2. smart pointers will act like a wrapper..
+for example we have a data type called Device Component.
+
+1.do we want dynamic allocation .  yes or no. no ok dont use smart pointers.
+2. ok I want dynamic allocation, ok do you want your pointer to be shared..
+two pointers point to same memory location. ok .. sharedpointer.
+no I dont want pointer sharing.. ok then uniquepointer..
+3. whether we are using shared pointer or unique pointer.. on what type..? in our case let is it Device
+tell the shared pointer or uniquepoiter hey data type I am dealing is Device.
+4. after you created uniquepointer or sharedpoiter for  datatype like device, figure out how to use 
+to call the non static funtions of Device.. thru the unique pointer or shared pointer..
+
+
+
+after you create an object what do we do.
+after you created a variable of a particular data type, what do we do
+answer in both cases operations..
+with respect to class operations typically mean calling non static functions.
+
+
+
+A *obj =new A();
+new operator allcoates memory on heap..
+
+delete obj;// this deallocates memory.. hope it does..
+
+
+we have  a doubt on X.
+somebody wants us to explain X and he takes us to lot of thngs unrelated to X.
+so queston is how to remove unrelated thing and focus on X.
+
+we have shared called x.
+this ptr can be shared . so let us shared things are y, z
+y and z are shared from x.
+i want to tell y , I no longer want to be attached to X.
+
+y.reset();
+y-> invite trouble.
+
+
+whether use autoptr or sharedptr. we have to give a datatype which it will manage.
+data type variable is created on heap and deallocation also is done by the unique ptr or shraed ptr.
+due to operator overloading -> we can think as thought the variable of autoptr or sharedptr is like the managed one.
+
+autoptr<device> x;
+x is object of autoptr
+x->setDevicedetails() , setdevicedetails is  function of device, but i can use it on x because of operator overloading.
+
+
+struct Device
+{
+
+}...
+
+
+
+int main()
+{
+Device d1;
+f1(&d1);  // it is understood f1 does not need  unique opt r os ahre
+
+}
+
+Device *d // bad code
+you want to categorize pointr cosnt pointer or pointer to constant.
+
+whenever possible start adding the const keyword
+------------------------------------------------------------
+
+if my job involves lot of thread programming, first read threads from os perspective and not a language perspective.
+
+
+Threads.
+1. when in doubt dont use threads, justify youir need for a thread.
+
+when not to use threads.
+1. if you need timer or if you need scheduled tasks or do something in background and return.. we should not touch
+threads..we should explorer other classes..
+
+if higher level of abstraction available prefer it and dont cook things from a lower level.
+
+what is a thread?
+a parallel execution within a process can be termed as a thread.
+
+scenarios where threads are needed.
+
+1. Event handling scenarios
+2. network programming
+3. custom frameworks.
+
+what are the things we should know after getting convinced that we need a thread
+
+1. what is the job that the thread should do first.
+2. how to tell I need a thread and attach the job to the thread and start it.
+3. once the thread starts do you need to stop in between.
+4. when we multiple threads and they need to share a common resource which is not sharable..how to get some of exclusivity..
+synchronization  - we should collect data and then synchronize things and not do it based on paranoia
+5. do you need inter thread communication..
+
+there is resource called X
+there are two threads t1 and t2, which are accessing the resource X
+prove some problem is coming with X because of t1 and t2 accessing them parallely.
+No I cant prove then stay from synchronization..
+
+1. justify your need for synchronization
+2. then decide which section of the code needs exclusivity.
+3. then think of the syntax.. mutex usage along with an appropriate lock.
+
+how to print 10 mulitples by creating a thread.
+job of thread is to print 10 multiples
+
+try them with async 
+and check which one works faster.
+
+main
+1. create one thread which will take a function and print 10 multiples of 2.
+
+main.
+
+1. create a asynch and pass the same print 10 multiples of 2.
+
+
+I want to do job every 10 minutes once. --Timer
+I want to do a job on 1st of every month  --scheduled task
+
+
+
+
+
+today
+
+1. open official documentation of important functiosn and classes.
+2. ok i need heap, then think of autoptr and shared ptr.
+3. thread are you clear about the context, more than the syntax.
+
+
+
+
+
+
+1. variable which both the threads trying to access for change.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

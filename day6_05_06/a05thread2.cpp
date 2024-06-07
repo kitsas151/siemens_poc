@@ -80,8 +80,9 @@ The mutex is automatically released when the lock_guard object goes out of scope
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include <atomic>
 
-int x = 0;
+automic_int x = 0;
 std::mutex mtx; // Mutex to protect access to x
 /*
 A thread owns a mutex from the time it successfully calls either lock or
@@ -92,7 +93,7 @@ The mutex prevents other threads
 */
 void incrementX() {
     for (int i = 0; i < 1000000; ++i) {
-        std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
+      //  std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
         x = x + 1;
     }
     
@@ -100,17 +101,22 @@ void incrementX() {
 
 void decrementX() {
     for (int i = 0; i < 1000000; ++i) {
-        std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
+        //std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
         x = x - 1;
     }
 }
 
 int main() {
     
+
+    //incrementX();
+    //decrementX();
+    
     std::thread t1(incrementX);
     std::thread t2(decrementX);
     t1.join();
     t2.join();
+    abcjobs();
     std::cout << "Final value of x (with mutex): " << x << std::endl;
     return 0;
 }

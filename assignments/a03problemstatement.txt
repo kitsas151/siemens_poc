@@ -220,7 +220,7 @@ and devicename. have a constructor which takes all the 3 arguments and intialize
 have a menu as follows.
 X menu
 1. create device object.
-0. exist
+0. exit
 
 when 0 is selected we should come out of main.
 when 1 is selected show a submenu as follows.
@@ -238,12 +238,25 @@ when 3 is selected ensure you allocate memory by using shared_ptr.
 
 ---------------------------------------------------------------
 
-1. create an array filled with 10000 random numbers. and create two threads.
+20. create an array filled with 10000 random numbers.
+ and create two threads.
 one should count the number of odd numbers in the array and print it
-and second one should count the number of even numbers in the array and print it.
+and second one should count the number of even numbers in the array
+ and print it.
+
+ main()
+    array of 10000 numbers filled with random numbers.
+    t1  --array
+    t2  --array 
+
 
 2. modify the same program where the threads should return the number of odd numbers
 and even numbers to the main function and we should print it there.
+
+
+
+
+
 
 3. look at a02problemstatement.txt and see whether we can use any threads in that scenario.
 

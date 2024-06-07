@@ -7,16 +7,25 @@ struct B
     virtual ~B() = default;
  
     virtual void bar() { std::cout << "B::bar\n"; }
+
+    void f1() { std::cout  <<"this is function f1 of B\n "; }
 };
  
 struct D : B
 {
     D() { std::cout << "D::D\n"; }
+    D(int x, int y)  { std::cout << "parametrized constructor"; }
     ~D() { std::cout << "D::~D\n"; }
  
     void bar() override { std::cout << "D::bar\n"; }
 };
  
+
+void freak(std::unique_ptr<D> up)
+{
+
+        up->f1();
+}
 
 
 int main()
@@ -24,8 +33,11 @@ int main()
     //we have dynamically allocated memory on heap
     {
     //std::unique_ptr<B> up(new B());
-    std::unique_ptr<B> up =std::make_unique<B>();
-    up->bar();
+    std::unique_ptr<D> up =std::make_unique<D>(2,3);
+    freak(std::move(up));
+   //up->bar();
+   // up->f1();
+    
 }
 std::cout <<"main function";
 }

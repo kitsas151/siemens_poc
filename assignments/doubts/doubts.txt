@@ -2,5 +2,8 @@ variable arguments with only parameter packs.
 inheritance 
 constexpr tells the compiler variable creation 
 auto and decltype internal implementations..
+Threads scnearo compulsory usage.. 
+sharedlocks and semaphores.
+
 
 

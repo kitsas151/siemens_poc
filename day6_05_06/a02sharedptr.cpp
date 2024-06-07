@@ -1,3 +1,5 @@
+#if 1
+
 #include <iostream>
 #include <memory> // Include the <memory> header for shared_ptr
 
@@ -19,7 +21,7 @@ void f1(std::shared_ptr<MyClass> ptr2)
     ptr2->value=44;
     std::cout << "Value via ptr2: " << ptr2->value << std::endl;
       //if you want to detach go ahead
-      ptr2.reset(); // ptr no longer points to the the object
+//      ptr2.reset(); // ptr no longer points to the the object
 
 }
 
@@ -32,11 +34,14 @@ int main() {
      f1(ptr1);
         // Create another shared_ptr pointing to the same object
     // Access the object via ptr2 (still valid)
+    
     std::cout << "Value via ptr1 after reset: " << ptr1->value << std::endl;
     }
     std::cout  << "main function at work";
-       return 0;
+    return 0;
 }
+
+#endif
 
 /*
 
