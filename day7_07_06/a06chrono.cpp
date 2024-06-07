@@ -4,8 +4,10 @@
 
 
 <chrono> provides three main clock types:
-std::chrono::system_clock: Represents the system-wide real-time wall clock. It may not be monotonic (i.e., it can be adjusted due to system time changes).
-std::chrono::steady_clock: Represents a monotonically increasing clock that’s not affected by system time adjustments.
+std::chrono::system_clock: Represents the system-wide real-time wall clock. It may not be monotonic
+ (i.e., it can be adjusted due to system time changes).
+std::chrono::steady_clock: Represents a monotonically increasing clock that’s not affected
+ by system time adjustments.
 std::chrono::high_resolution_clock: Provides the shortest tick period available on the system.
 
  A duration object expresses a time span (e.g., minutes, hours, milliseconds).
@@ -15,7 +17,6 @@ Time Points:
 A time point represents a specific point in time.
 It combines a clock type (e.g., system_clock) with a duration (e.g., seconds).
 You can use time points to measure intervals or calculate future or past times.
-
 
 
 */

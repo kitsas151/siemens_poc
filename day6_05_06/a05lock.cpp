@@ -48,7 +48,7 @@ void bar() {
 
 int main() {
     bar();
-    // Mutex is explicitly unlocked when 'lock' goes out of scope
+    
     return 0;
 }
 

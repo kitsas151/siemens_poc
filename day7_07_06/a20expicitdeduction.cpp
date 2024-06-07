@@ -13,7 +13,7 @@ struct Pair {
 
 // Explicit deduction guide for Pair
 template <typename T, typename U>
-Pair(T, U) -> Pair<T, U>;
+Pair(T, U) -> Pair<T, U>;  // we already saw this during templates
 
 /*
 

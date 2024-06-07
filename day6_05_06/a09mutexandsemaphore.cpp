@@ -6,6 +6,9 @@
   It prevents race conditions and maintains data integrity.
 
 
+  Mutex is a locking mechanism, whereas Semaphore is a signaling mechanism
+
+
 */
 
 
@@ -39,7 +42,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 
 //c++ 20
 
@@ -55,34 +58,6 @@ Allows a specified number of threads to enter.
 
 */
 
-#include <iostream>
-#include <thread>
-#include <semaphore>
-
-std::counting_semaphore<size_t> sem(1); // Initialize with an initial count of 1
-
-void worker(int id) {
-    sem.acquire(); // Acquire the semaphore
-    std::cout << "Thread " << id << " is working." << std::endl;
-    sem.release(); // Release the semaphore
-}
-
-int main() {
-    std::thread t1(worker, 1);
-    std::thread t2(worker, 2);
-
-    t1.join();
-    t2.join();
-
-    return 0;
-}
-
-
-
-
-#endif
-
-#if 1
 
 //g++ --std=c++20 .\a09mutexandsemaphore.cpp
 
@@ -132,13 +107,37 @@ int main() {
 
 /*
 
+
+Functionality: It acts as a locking mechanism, allowing a process to acquire and release the mutex before entering or leaving a critical section of code.
+Advantages:
+No race conditions: Only one process can be in the critical section at any given time.
+Data consistency: Ensures integrity by preventing concurrent access.
+Priority inheritance: Helps mitigate priority inversion issues.
+Disadvantages:
+Starvation: If a thread holding the mutex sleeps or gets preempted, others can’t enter the critical section.
+Busy waiting: May lead to CPU cycle wastage
+
+Semaphore:
+Purpose: A semaphore is a non-negative integer variable shared among threads.
+Functionality: It uses signaling to control access to shared resources.
+Advantages:
+Multiple threads: Allows multiple threads to access the critical section simultaneously.
+Machine-independent: Works across different platforms.
+Flexible: Can limit the number of threads accessing a resource.
+
+
+
+
 std::counting_semaphore serves as a synchronization primitive. Let’s break it down:
 
 std::counting_semaphore:
 A counting semaphore is a type of semaphore that maintains an internal count.
 It allows a specified number of threads to access a shared resource concurrently.
-In our example, we initialized it with a count of 1 (std::counting_semaphore<1>), which means only one thread can acquire the semaphore at a time.
-When a thread acquires the semaphore, the count decreases by 1; when it releases the semaphore, the count increases by 1.
-It’s a useful tool for managing access to shared resources, ensuring proper synchronization, and preventing data corruption.
+we initialized it with a count of 1 (std::counting_semaphore<1>), which means only one thread can
+acquire the semaphore at a time.
+When a thread acquires the semaphore, the count decreases by 1; when it releases the semaphore,
+the count increases by 1.
+It’s a useful tool for managing access to shared resources, ensuring proper synchronization,
+and preventing data corruption.
 
 */

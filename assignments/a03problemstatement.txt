@@ -245,9 +245,20 @@ and second one should count the number of even numbers in the array and print it
 2. modify the same program where the threads should return the number of odd numbers
 and even numbers to the main function and we should print it there.
 
-3. look in the code base for thread usage and constexpr usage and see where all it is being used.
+3. look at a02problemstatement.txt and see whether we can use any threads in that scenario.
+
+4. look in the code base for thread usage and constexpr usage and see where all it is being used.
+
+5. look in the code base for automic usage and see with what datatypes they are using.
+
+6. copy paste some examples on automic and see if you dont use automic what is consequence..
+
+7. look in the code base whether mutex or semaphore has been used in the code if yes why..
 
 -------------------------------------------------------------------------------------------------
+
+
+
 
 
 

@@ -1,3 +1,94 @@
+#include <iostream>
+#include <atomic>
+#include <thread>
+
+/*
+
+memory orderings provided by  std::atomic library.
+
+memory_order_relaxed:
+This is the most relaxed memory order.
+No synchronization or ordering constraints are imposed.
+Reads and writes can be reordered freely.
+
+
+memory_order_acquire:
+Ensures that all previous reads and writes in the current thread are visible before subsequent reads.
+Useful for acquiring data from other threads.
+
+
+atomic<int> x(0);
+int value = x.load(memory_order_acquire);
+
+memory_order_release
+atomic<int> x(0);
+x.store(42, memory_order_release);
+
+Ensures that all subsequent reads and writes in the current
+ thread are visible after previous writes.
+Useful for releasing data to other threads.
+
+memory_order_acq_rel (Acquire-Release):
+Combines acquire and release semantics.
+Ensures both visibility of previous writes and 
+ordering of subsequent writes.
+
+atomic<int> x(0);
+int value = x.exchange(42, memory_order_acq_rel);
+
+explore other 
+
+*/
+
+#if 1
+
+class Counter {
+public:
+    Counter() : count(0) {}
+
+    void increment() {
+        count.fetch_add(1, std::memory_order_relaxed);
+       // count++;
+    }
+
+    int get() const {
+      return count.load(std::memory_order_relaxed);
+      //  return count;
+    }
+
+private:
+    std::atomic<int> count;
+    //int count;
+};
+
+int main() {
+    Counter myCounter;
+
+    // Increment the counter in multiple threads
+    constexpr int numThreads = 4;
+    std::thread threads[numThreads];
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i] = std::thread([&myCounter](){
+            for (int j = 0; j < 100000; ++j) {
+                myCounter.increment();
+            }
+        });
+    }
+
+    // Wait for all threads to finish
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i].join();
+    }
+
+    std::cout << "Final count: " << myCounter.get() << std::endl;
+
+    return 0;
+}
+
+#endif
+
+
+
 #if 0
 
 #include <iostream>
@@ -192,6 +283,54 @@ int value = y.load(memory_order_seq_cst);
 
 
 */
+
+
+#endif
+
+#if 0
+
+#include <iostream>
+#include <atomic>
+
+class Counter {
+public:
+    Counter() : count(0) {}
+
+    void increment() {
+        count.fetch_add(1, std::memory_order_relaxed);
+    }
+
+    int get() const {
+        return count.load(std::memory_order_relaxed);
+    }
+
+private:
+    std::atomic<int> count;
+};
+
+int main() {
+    Counter myCounter;
+
+    // Increment the counter in multiple threads
+    constexpr int numThreads = 4;
+    std::thread threads[numThreads];
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i] = std::thread(&myCounter {
+            for (int j = 0; j < 100000; ++j) {
+                myCounter.increment();
+            }
+        });
+    }
+
+    // Wait for all threads to finish
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i].join();
+    }
+
+    std::cout << "Final count: " << myCounter.get() << std::endl;
+
+    return 0;
+}
 
 
 #endif
