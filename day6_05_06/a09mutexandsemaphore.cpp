@@ -8,6 +8,8 @@
 
   Mutex is a locking mechanism, whereas Semaphore is a signaling mechanism
 
+  https://en.cppreference.com/w/cpp/thread/counting_semaphore
+
 
 */
 
