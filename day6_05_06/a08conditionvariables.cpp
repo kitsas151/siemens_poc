@@ -1,4 +1,59 @@
+
 #if 1
+
+#include <condition_variable>
+#include <iostream>
+#include <mutex>
+#include <thread>
+
+std::mutex mtx; // Mutex to synchronize access
+std::condition_variable cv; // Condition variable
+
+bool data_ready = false; // Flag indicating data availability
+
+// Producer function (simulating data production)
+void producer() {
+    // Simulate data production (e.g., reading from a file or network)
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+
+    // Lock the mutex
+    std::unique_lock<std::mutex> lock(mtx);
+
+    // Set the data_ready flag
+    data_ready = true;
+
+    std::cout << "\n data ready \n";
+
+    // Notify the consumer
+    cv.notify_one();
+}
+
+// Consumer function (waiting for data)
+void consumer() {
+    // Lock the mutex
+    std::unique_lock<std::mutex> lock(mtx);
+
+    // Wait until data_ready is true
+    cv.wait(lock, [] { return data_ready; });
+
+    // Data is now available
+    std::cout << "Data consumed!" << std::endl;
+}
+
+int main() {
+    std::thread consumer_thread(consumer);
+    std::thread producer_thread(producer);
+
+    consumer_thread.join();
+    producer_thread.join();
+
+    return 0;
+}
+
+
+#endif
+
+#if 0
 
 //Condition variables in C++ are synchronization primitives used to coordinate threads based on certain conditions.
 
@@ -18,6 +73,10 @@ Remember to handle exceptions and edge cases in a real-world application.
 Condition variables are essential for efficient thread synchronization and avoiding busy-waiting.
 
 */
+
+
+
+
 #include <iostream>
 #include <thread>
 #include <mutex>

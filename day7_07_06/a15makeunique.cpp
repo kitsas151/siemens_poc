@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 #include <iostream>
 #include <memory>
@@ -16,10 +16,10 @@ Args...: Arguments for the constructor of T
 
 */
 
-class Geeks {
+class POC {
 public:
-    Geeks() { std::cout << "Object Created\n"; }
-    ~Geeks() { std::cout << "Object Destroyed\n"; }
+    POC() { std::cout << "Object Created\n"; }
+    ~POC() { std::cout << "Object Destroyed\n"; }
 };
 
 void f() {
@@ -39,11 +39,11 @@ int main() {
 #include <iostream>
 #include <memory>
 
-class Geeks {
+class POC {
 public:
     int value;
-    Geeks(int x) : value(x) { std::cout << "Object Created\n"; }
-    ~Geeks() { std::cout << "Object Destroyed\n"; }
+    POC(int x) : value(x) { std::cout << "Object Created\n"; }
+    ~POC() { std::cout << "Object Destroyed\n"; }
 };
 
 void f() {

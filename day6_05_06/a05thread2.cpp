@@ -30,6 +30,35 @@ int main() {
 
 #endif
 
+
+#if 0
+
+#include <iostream>
+#include <thread>
+
+int x = 0; // Shared variable
+
+void incrementX() {
+    for (int i = 0; i < 1000000; ++i) {
+        // Race condition: Both threads can access 'x' simultaneously
+        x = x + 1;
+    }
+}
+
+int main() {
+    std::thread t1(incrementX);
+    std::thread t2(incrementX);
+
+    t1.join();
+    t2.join();
+
+    std::cout << "Final value of x: " << x << std::endl;
+    return 0;
+}
+
+
+#endif
+
 #if 1
 //To prevent race conditions, you would typically use synchronization mechanisms like mutexes or locks to
 // ensure that only one thread accesses the shared data at a time. For example, protecting the access

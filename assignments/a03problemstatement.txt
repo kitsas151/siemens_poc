@@ -236,6 +236,29 @@ when 1 is selected ensure you allocate memory by using new.
 when 2 is selected ensure you allocate memory by unique_ptr
 when 3 is selected ensure you allocate memory by using shared_ptr.
 
+---------------------------------------------------------------
+
+1. create an array filled with 10000 random numbers. and create two threads.
+one should count the number of odd numbers in the array and print it
+and second one should count the number of even numbers in the array and print it.
+
+2. modify the same program where the threads should return the number of odd numbers
+and even numbers to the main function and we should print it there.
+
+3. look in the code base for thread usage and constexpr usage and see where all it is being used.
+
+-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -135,13 +135,16 @@ memory_order_release
 atomic<int> x(0);
 x.store(42, memory_order_release);
 
-Ensures that all subsequent reads and writes in the current thread are visible after previous writes.
+Ensures that all subsequent reads and writes in the current
+ thread are visible after previous writes.
 Useful for releasing data to other threads.
+
 
 
 memory_order_acq_rel (Acquire-Release):
 Combines acquire and release semantics.
-Ensures both visibility of previous writes and ordering of subsequent writes.
+Ensures both visibility of previous writes and 
+ordering of subsequent writes.
 
 atomic<int> x(0);
 int value = x.exchange(42, memory_order_acq_rel);memory_order_seq_cst (Sequential Consistency):
@@ -149,7 +152,6 @@ int value = x.exchange(42, memory_order_acq_rel);memory_order_seq_cst (Sequentia
 
 Strongest memory order.
 Guarantees sequential consistency across all threads.
-
 atomic<int> x(0), y(0);
 x.store(1, memory_order_seq_cst);
 int value = y.load(memory_order_seq_cst);
@@ -167,6 +169,4 @@ int value = y.load(memory_order_seq_cst);
 
 
 
-
-*/
 
