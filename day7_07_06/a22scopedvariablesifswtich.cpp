@@ -1,9 +1,10 @@
-#if 0
+#if 1
 
 #include <iostream>
 
 int main() {
     if (int x = 42; x > 30) {
+        
         std::cout << "x is greater than 30\n";
     } else {
         std::cout << "x is not greater than 30\n";
@@ -17,7 +18,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 
 #include <iostream>
 

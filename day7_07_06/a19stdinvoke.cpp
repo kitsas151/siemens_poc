@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 #include <iostream>
 #include <functional> // for std::invoke
@@ -19,6 +19,7 @@ public:
 int main() {
     // Example 1: Invoke a free function
     int result1 = std::invoke(add, 3, 4);
+    //int result1 =add(3,4);
     std::cout << "Result from add: " << result1 << "\n";
 
     // Example 2: Invoke a lambda

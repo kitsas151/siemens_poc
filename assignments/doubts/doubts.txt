@@ -4,6 +4,10 @@ constexpr tells the compiler variable creation
 auto and decltype internal implementations..
 Threads scnearo compulsory usage.. 
 sharedlocks and semaphores.
+a20explicitdeduction..
+Stringview with an object.
+
+
 
 
 

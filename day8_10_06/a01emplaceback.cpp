@@ -5,7 +5,8 @@
 
 /*
 Use push_back when you want to move an existing object into the vector.
-Use emplace_back when you create a new temporary object and want to construct it directly in place within the container12.
+Use emplace_back when you create a new temporary object and want to construct it 
+directly in place within the container12.
 */
 
 

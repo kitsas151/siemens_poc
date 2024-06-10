@@ -12,7 +12,7 @@ Examples of aggregate initialization include setting up arrays, structs, and cla
 
 */
 
-#if 0
+#if 1
 
 #include <iostream>
 #include <string>

@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 #include <iostream>
 #include <variant>
@@ -11,6 +11,7 @@ int main() {
 
     // Assign an int value
     myVariant = 42;
+
     if (std::holds_alternative<int>(myVariant)) {
         int intValue = std::get<int>(myVariant);
         std::cout << "Value in variant (int): " << intValue << std::endl;
@@ -26,6 +27,10 @@ int main() {
     // You can also use std::visit for more complex operations
     std::variant<std::vector<int>, double> data;
     data = std::vector<int>{1, 2, 3};
+
+
+
+    
 
     std::visit( {
         if constexpr (std::is_same_v<decltype(value), std::vector<int>>) {

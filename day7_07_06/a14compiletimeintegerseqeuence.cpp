@@ -23,7 +23,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 
 template <typename T, T... Ints>
 struct integer_sequence_size;

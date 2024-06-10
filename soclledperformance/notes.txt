@@ -38,9 +38,13 @@ Tools
 
 Valgrind with Cachegrind: Valgrind is a powerful tool for memory profiling. Cachegrind, a Valgrind tool, provides cache miss information. You can use it to analyze cache behavior in your C++ program1.
 
-perf: The perf command-line tool allows you to collect information about cache misses. For example, running perf stat -e L1-dcache-loads,L1-dcache-load-misses ./your_program will give you load and miss counts, along with the cache miss rate2.
+perf: The perf command-line tool allows you to collect information about cache misses.
+ For example, running perf stat -e L1-dcache-loads,L1-dcache-load-misses ./your_program 
+ will give you load and miss counts, along with the cache miss rate2.
 
-ccache: If you’re using ccache (a compiler cache), you can track cache hits and misses. Run ccache -s to view the stats, and use ccache -z to reset them before measuring cache misses
+ccache: If you’re using ccache (a compiler cache), 
+you can track cache hits and misses. Run ccache -s to view the stats,
+ and use ccache -z to reset them before measuring cache misses
 
 
 ----------------------------------------------------------------------------------------------------------

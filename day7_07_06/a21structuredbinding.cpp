@@ -1,4 +1,4 @@
-#if 1
+#if 0
 
 #include <iostream>
 #include <tuple>
@@ -27,7 +27,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 
 #include <iostream>
 #include <utility> // for std::pair

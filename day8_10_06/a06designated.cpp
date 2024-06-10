@@ -1,4 +1,4 @@
-#if 0
+#if 1
 
 //Designated initializers are a feature introduced in C++20 that allow you to initialize data members of a struct or an array in any order you want. They provide a more readable and flexible way of initializing data members. Let’s look at an example:
 
