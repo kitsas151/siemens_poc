@@ -1,0 +1,57 @@
+https://gcc.gnu.org/onlinedocs/gcc-9.5.0/gnat_ugn/Optimization-Levels.html#:~:text=Turning%20on%20optimization%20makes%20the%20compiler%20attempt%20to,that%20is%20effective.%20The%20default%20is%20optimization%20off.
+https://www.youtube.com/watch?v=m25p3EtBua4
+https://www.youtube.com/watch?v=qCjEN5XRzHc
+
+------------------------------------------------------------------------------------------------------------
+
+compiler optimization levels
+-------------------------------------------------------------------------------------------------------------
+
+
+-O0 (No Optimization): This level disables all optimizations. It’s useful for debugging because it produces straightforward code that closely matches the source. Use it with -g for debugging information1.
+-O1 (Optimize): With this level, the compiler aims to reduce code size and execution time without performing time-consuming optimizations. It includes several basic optimizations2.
+-O2 (Optimize Even More): This level performs nearly all supported optimizations that don’t involve a space-speed tradeoff. It improves performance but increases compilation time2.
+-O3 (Aggressive Optimization): At this level, the compiler applies aggressive optimizations, potentially improving performance significantly. However, it may also increase compilation time3.
+-Os (Optimize for Space): This option focuses on minimizing code size. Use it when space is a concern
+
+-------------------------------------------------------=========================
+
+In programming, a cache miss occurs when the system seeks data in the cache but doesn’t find it there. Instead, it must retrieve the data from another source (such as main memory or disk storage). 
+Cache misses are the opposite of cache hits, where the requested data is found in the cache. 
+There are different types of cache misses:
+
+Compulsory Misses: These occur when a cache line is accessed for the first time. They’re unavoidable and happen regardless of cache size or organization.
+
+Conflict Misses: These arise due to cache associativity. In direct-mapped caches, they’re common. In set-associative caches, they occur less frequently. Associative caches have zero conflict misses.
+
+Coherence Misses: Also known as invalidation misses, these happen when external processors 
+(e.g., I/O updates) modify memory.
+
+Capacity Misses: These occur when the cache is too small to hold 
+all frequently accessed data.
+
+Minimizing cache misses is crucial for performance optimization.
+
+--------------------------------------------------------
+
+Tools
+
+Valgrind with Cachegrind: Valgrind is a powerful tool for memory profiling. Cachegrind, a Valgrind tool, provides cache miss information. You can use it to analyze cache behavior in your C++ program1.
+
+perf: The perf command-line tool allows you to collect information about cache misses. For example, running perf stat -e L1-dcache-loads,L1-dcache-load-misses ./your_program will give you load and miss counts, along with the cache miss rate2.
+
+ccache: If you’re using ccache (a compiler cache), you can track cache hits and misses. Run ccache -s to view the stats, and use ccache -z to reset them before measuring cache misses
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+

@@ -254,10 +254,6 @@ and second one should count the number of even numbers in the array
 and even numbers to the main function and we should print it there.
 
 
-
-
-
-
 3. look at a02problemstatement.txt and see whether we can use any threads in that scenario.
 
 4. look in the code base for thread usage and constexpr usage and see where all it is being used.
